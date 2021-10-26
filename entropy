@@ -1,0 +1,17 @@
+#determine the entropy of system components 
+
+gmx covar -f long.xtc -s long.gro -o long.xvg 
+
+gmx anaeig -v eigenvec.trr -entropy -temp 300
+
+short 
+
+3858.01 J/mol K
+500.6 J/mol K 
+
+long 
+
+24194 J/mol K
+30321 J/mol K
+
+#the entropy of long chain polymer is much higher than that of the shorter chain
