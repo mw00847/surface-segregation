@@ -1,4 +1,4 @@
-# Surface segregation of polymers
+# Surface segregation of polymer blends
 
 Surface energy is the free energy per unit area of creating an interface with air or vacuum. Surface tension is the force per unit length along the surface opposing the interface of air or vacuum (1). The surface of polymer blends is often different from the bulk material. This in itself provides the opportunity to add functionality at the surface interface for coatings and paints to have properties such as corrosion inhibition, hydrophobicity, conductance and chemical resistance to name just a few.     
 
