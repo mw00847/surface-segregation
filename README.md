@@ -8,7 +8,7 @@ Predicting the surface composition is often determined initially by the componen
 
 In this work molecular dynamics simulations of polymer blends with different surface energies are compared.  The polymer weight and concentration is varied.  The MARTINI forcefield is used with GROMACS to create a periodic box with two interfaces.  The partial density function in GROMACS is then used to identify the position of the polymer across the box. 
 
-Using the MARTINI forcefield with dextran and PEO as with https://github.com/marrink-lab/polyply_1.0/wiki/Tutorial:-Martini-Polymers, simulation of 500ns produces phase seperated system as below. This work has been repeated from their paper.
+The polyply suite https://github.com/marrink-lab/polyply_1.0, provides a simple process to produce a wide range of polymer systems built using the MARTINI forcefield. Using the MARTINI forcefield with dextran and PEO as with https://github.com/marrink-lab/polyply_1.0/wiki/Tutorial:-Martini-Polymers, simulation of 500ns produces phase seperated system as below. This work has been repeated from their paper(3).
 
 ![alt text](https://github.com/mw00847/surface-segregation/blob/main/dextran_PEO.png?raw=True)
 
