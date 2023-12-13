@@ -10,7 +10,7 @@ In this work molecular dynamics simulations of polymer blends with different sur
 
 Using the MARTINI forcefield with dextran and PEO as with https://github.com/marrink-lab/polyply_1.0/wiki/Tutorial:-Martini-Polymers, simulation of 500ns produces phase seperated system as below. This work has been repeated from their paper.
 
-![alt text]([https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/mw00847/surface-segregation/blob/main/dextran_PEO.png))
+![alt text]([https://github.com/mw00847/surface-segregation/blob/main/dextran_PEO.png])
 
 (1) Tailoring the Attraction of Polymers toward Surfaces
 Gila E. Stein, Travis S. Laws, and Rafael Verduzco
