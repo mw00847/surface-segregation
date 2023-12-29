@@ -6,7 +6,7 @@ Predicting the surface composition of a polymer blend is often determined by the
 
 This work uses molecular dynamics with GROMACS to vary surface tension, molecular weight and concentration of useful polymer blends to further understand the key reasons for surface segregation. The first polymer blend to be studied was poly(3-hexylthiophene) (P3HT) and polystyrene (PS), This blend differs in surface energy with P3HT 21 mJ/m^2 and PS 40 mJ/m^2.
 
-The polyply suite (7), provides a simple process to produce a wide range of polymer systems built using the MARTINI forcefield. As with the tutorial on their github page of dextran and PEO (6), simulation of 500ns of the blend produces a phase seperated system as below. This work has been repeated from their paper(3).
+The polyply suite (7), provides a simple process to produce a wide range of polymer systems built using the MARTINI forcefield. As with the tutorial on their github page of dextran and PEO (6), simulation of 500ns of the blend produces a phase seperated system as below. This work has been repeated from their paper (3).
 
 ![alt text](https://github.com/mw00847/surface-segregation/blob/main/dextran_PEO.png?raw=True)
 
