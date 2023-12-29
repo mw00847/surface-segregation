@@ -1,16 +1,24 @@
 # Surface segregation of polymer blends
 
-Surface energy is the free energy per unit area of creating an interface with air or vacuum. Surface tension is the force per unit length along the surface opposing the interface of air or vacuum (1). The surface of polymer blends is often different from the bulk material. This in itself provides the opportunity to add functionality at the surface interface for coatings and paints to have properties such as corrosion inhibition, hydrophobicity, conductance and chemical resistance to name just a few.     
+Surface energy is the free energy per unit area of creating an interface with air or vacuum. Surface tension is the force per unit length along the surface opposing the interface of air or vacuum (1). The surface of polymer blends is often different from the bulk material (1). This in itself provides the opportunity to add functionality at the surface interface for coatings to have properties such as corrosion inhibition, hydrophobicity, conductance and anti cratering. Flow aids are commonly used in small quantities in coatings to improve the wetting and work of adhesion and also enhance the visual effect of the coating (4). These flow aids are often a low weight polyacrylic in comparison to the blend of polymers that make up the binder and topocoat.     
 
-Predicting the surface composition is often determined initially by the component with the lowest surface energy (1,2). However the structure (entropic) and functional groups (enthalpic) contributions have shown to contradict the surface energy belief.
+Predicting the surface composition of a polymer blend is often determined by the component with the lowest surface energy (1,2). However the structure (entropic) and functional groups (enthalpic) contributions have shown to contradict the surface energy belief. A prerequisite of segregation is imiscibility in the polymer blend (2), using an extended Flory Huggins parameter it is suggested that ester monomers with a similar backbone structure increase miscibility. 
 
-# Method
+This work uses molecular dynamics with GROMACS to vary surface tension, molecular weight and concentration of useful polymer blends to further understand the key reasons for surface segregation. The first polymer blend to be studied was poly(3-hexylthiophene) (P3HT) and polystyrene (PS), This blend differs in surface energy with P3HT 21 mJ/m^2 and PS 40 mJ/m^2.
 
-In this work molecular dynamics simulations of polymer blends with different surface energies are compared.  The polymer weight and concentration is varied.  The MARTINI forcefield is used with GROMACS to create a periodic box with two interfaces.  The partial density function in GROMACS is then used to identify the position of the polymer across the box. 
-
-The polyply suite https://github.com/marrink-lab/polyply_1.0, provides a simple process to produce a wide range of polymer systems built using the MARTINI forcefield. Using the MARTINI forcefield with dextran and PEO as with https://github.com/marrink-lab/polyply_1.0/wiki/Tutorial:-Martini-Polymers, simulation of 500ns produces phase seperated system as below. This work has been repeated from their paper(3).
+The polyply suite (7), provides a simple process to produce a wide range of polymer systems built using the MARTINI forcefield. As with the tutorial on their github page of dextran and PEO (6), simulation of 500ns of the blend produces a phase seperated system as below. This work has been repeated from their paper(3).
 
 ![alt text](https://github.com/mw00847/surface-segregation/blob/main/dextran_PEO.png?raw=True)
+
+A surface-vacuum interface can be created by extending the Z axis of an equilibriated polymer blend box (8). Due to periodic boundary constraints, two interfaces are created.
+
+# Method 
+
+
+# Results
+
+
+Polymer blends where created using the Polyply suite.  
 
 (1) Tailoring the Attraction of Polymers toward Surfaces
 Gila E. Stein, Travis S. Laws, and Rafael Verduzco
@@ -26,3 +34,22 @@ Fabian Grünewald, Mats H. Punt, Elizabeth E. Jefferys, Petteri A. Vainikka, Mel
 Journal of Chemical Theory and Computation 2022 18 (12), 7555-7569
 DOI: 10.1021/acs.jctc.2c00757
 https://pubs.acs.org/doi/epdf/10.1021/acs.jctc.2c00757
+
+(4) Migration and segregation phenomena of a silicone additive in a multilayer organic coating
+Steven J.Hinder, Chris Lowe, James T.Maxted, John F.Watts 
+Progress in Organic Coatings 
+doi:10.1016/j.porgcoat.2005.04.007
+
+(5) A Molecular Dynamics Study on the Miscibility and Morphology of Polyester Blends used in Coil Coatings
+Matthew Wearon, Brendan J. Howlin, Chris Lowe, Marie-Laure Abel, John F. Watts 
+Progress in Organic Coatings 
+https://doi.org/10.1016/j.porgcoat.2022.107065
+
+(6)Tutorial: Martini Polymers 
+https://github.com/marrink-lab/polyply_1.0/wiki/Tutorial:-Martini-Polymers
+
+(7) Polyply suite 
+https://github.com/marrink-lab/polyply_1.0
+
+(8) Liquid-vapor tension
+https://sites.psu.edu/simtech/liquid-vapor-tension/
