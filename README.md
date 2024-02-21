@@ -4,7 +4,7 @@ Surface energy is the free energy per unit area of creating an interface with ai
 
 Predicting the surface composition of a polymer blend is often determined by the component with the lowest surface energy (1,2). However the structure (entropic) and functional groups (enthalpic) contributions have shown to contradict the surface energy belief. A prerequisite of segregation is imiscibility in the polymer blend (2), using an extended Flory Huggins parameter it is suggested that ester monomers with a similar backbone structure increase miscibility. 
 
-This work uses molecular dynamics with GROMACS to vary surface tension, molecular weight and concentration of useful polymer blends to further understand the key reasons for surface segregation. The first polymer blend to be studied was poly(3-hexylthiophene) (P3HT) and polystyrene (PS), This blend differs in surface energy with P3HT 21 mJ/m^2 and PS 40 mJ/m^2.
+This work uses molecular dynamics with GROMACS to vary surface tension, molecular weight and concentration of useful polymer blends to further understand the key reasons for surface segregation. Blends of linear homopolymers that vary only with molecular weight produce melts where the lower weight chains are found at the surface (9).
 
 The polyply suite (7), provides a simple process to produce a wide range of polymer systems built using the MARTINI forcefield. As with the tutorial on their github page of dextran and PEO (6), simulation of 500ns of the blend produces a phase seperated system as below. This work has been repeated from their paper (3).
 
@@ -53,3 +53,8 @@ https://github.com/marrink-lab/polyply_1.0
 
 (8) Liquid-vapor tension
 https://sites.psu.edu/simtech/liquid-vapor-tension/
+
+(9) Entropic segregation of short polymers to the surface of
+a polydisperse melt
+P. Mahmoudi1 and M.W. Matsen
+DOI 10.1140/epje/i2017-11575-7
