@@ -1,0 +1,74 @@
+# This file was created Thu Feb 15 13:49:06 2024
+# Created by:
+#                  :-) GROMACS - gmx density, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/PEO/2024/75_long_25_short
+# Command line:
+#   gmx_mpi density -f extended_preNPT.xtc -s extended_preNPT.tpr -o water.xvg
+# gmx density is part of G R O M A C S:
+#
+# Giant Rising Ordinary Mutants for A Clerical Setup
+#
+@    title "Partial density"
+@    xaxis  label "Coordinate (nm)"
+@    yaxis  label "Density (kg m\S-3\N)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "W"
+    0.316832         0.148019
+    0.950495         0.155052
+     1.58416         0.385475
+     2.21782         0.215252
+     2.85148         0.333087
+     3.48515         0.226746
+     4.11881          0.22497
+     4.75247         0.217255
+     5.38614         0.197982
+      6.0198         0.170274
+     6.65346         0.305665
+     7.28713         0.153533
+     7.92079         0.219425
+     8.55445         0.217801
+     9.18812          1.35676
+     9.82178          14.4971
+     10.4554          34.2957
+     11.0891          57.5433
+     11.7228          77.5298
+     12.3564          87.0074
+     12.9901          88.8575
+     13.6238           77.268
+     14.2574          74.8803
+     14.8911           78.006
+     15.5247          81.8984
+     16.1584          84.3924
+     16.7921          85.8693
+     17.4257          83.4059
+     18.0594          87.0945
+     18.6931          91.2957
+     19.3267          97.9936
+     19.9604          94.0628
+     20.5941          67.4956
+     21.2277          37.4978
+     21.8614          14.4681
+      22.495          1.94429
+     23.1287         0.239351
+     23.7624         0.252232
+      24.396         0.381353
+     25.0297         0.250378
+     25.6634         0.135885
+      26.297          0.13675
+     26.9307         0.219468
+     27.5644         0.141694
+      28.198         0.254527
+     28.8317         0.233984
+     29.4653         0.132301
+      30.099         0.218328
+     30.7327         0.202374
+     31.3663          0.29683

@@ -1,0 +1,1000 @@
+  444  vim PE.itp
+  445  vim topol.top
+  446  gmx_mpi grompp -f em.mdp -c new.gro -p topol.top
+  447  vim em.mdp
+  448  gmx_mpi grompp -f em.mdp -c new.gro -p topol.top
+  449  gmx_mpi -v deffnm em -nb gpu
+  450  gmx_mpi -deffnm em -nb gpu -v
+  451  gmx_mpi mdrun -v deffnm em -nb gpu
+  452  gmx_mpi mdrun -deffnm em -nb gpu -v
+  453  ls
+  454  gmx_mpi grompp -f em.mdp -c new.gro -p topol.top -o em.tpr
+  455  gmx_mpi mdrun -deffnm em -nb gpu -v
+  456  ls
+  457  gmx_mpi energy -em.trr -o density.xvg
+  458  gmx_mpi energy -f em.trr -o density.xvg
+  459  gmx_mpi energy -f em.edr -o density.xvg
+  460  gmx_mpi energy -f em.edr -o potential.xvg
+  461  xmgrace potential.xvg
+  462  vim em.mdp
+  463  cat > npt.mdp
+  464  ls
+  465  vim npt.mdp
+  466  gmx_mpi grompp -f npt.mdp -c em.gro -p topol.top -o npt.tpr
+  467  gmx_mpi grompp -f npt.mdp -c em.gro -p topol.top -o npt.tpr -maxwarn 10
+  468  gmx_mpi mdrun -deffnm npt -nb gpu -v
+  469  ls
+  470  vim npt.mdp[
+  471  vim npt.mdp
+  472  vim em.mdp
+  473  ls
+  474  cd gromacs
+  475  ls
+  476  cd polyester
+  477  ls
+  478  vim box.gro
+  479  vim em.mdp
+  480  source /usr/local/gromacs/bin/GMXRC
+  481  gmx_mpi energy -f em.trr -o energy.xvg
+  482  gmx_mpi energy -f em.edr -o energy.xvg
+  483  xmgrace energy.xvg
+  484  ls
+  485  cd gromacs
+  486  ls
+  487  cd PE
+  488  ls
+  489  source /usr/local/gromacs/bin/GMXRC
+  490  gmx mdrun -deffnm anneal -nb gpu
+  491  gmx_mpi mdrun -deffnm anneal -nb gpu
+  492  gmx_mpi grompp -f anneal.mdp -o anneal.tpr  -maxwarn 100
+  493  gmx_mpi grompp -c em.gro  -f anneal.mdp -o anneal.tpr  -maxwarn 100
+  494  gmx_mpi mdrun -deffnm anneal -nb gpu
+  495  ls
+  496  vim em.mdp
+  497  ls
+  498  gmx_mpi grompp -c out.gro  -f em.mdp -o em.tpr  -maxwarn 100
+  499  gmx_mpi mdrun -deffnm em -nb gpu
+  500  gmx_mpi mdrun -deffnm em -nb gpu -v 
+  501  vim em.mdp
+  502  gmx_mpi grompp -c em.gro  -f em.mdp -o em.tpr  -maxwarn 100
+  503  gmx_mpi mdrun -deffnm em -nb gpu -v 
+  504  gmx_mpi grompp -c em.gro  -f anneal.mdp -o anneal.tpr  -maxwarn 100
+  505  gmx_mpi mdrun -deffnm anneal -nb gpu
+  506  gmx_mpi mdrun -deffnm anneal -nb gpu -v
+  507  vim anneal.mdp
+  508  gmx_mpi grompp -c em.gro  -f anneal.mdp -o anneal.tpr  -maxwarn 100
+  509  gmx_mpi mdrun -deffnm anneal -nb gpu -v
+  510  vim anneal.mdp
+  511  gmx_mpi grompp -c em.gro  -f anneal.mdp -o anneal.tpr  -maxwarn 100
+  512  gmx_mpi mdrun -deffnm anneal -nb gpu -v
+  513  ls
+  514  cd gromacs
+  515  ls
+  516  cd PE
+  517  ls
+  518  source /usr/local/gromacs/bin/GMXRC
+  519  gmx_mpi energy
+  520  ls
+  521  gmx_mpi energy -f em.edr
+  522  gmx_mpi energy -f em.edr -o energy.xvg
+  523  xmgrace energy.xvg
+  524  ls
+  525  vim em.mdp
+  526  gmx_mpi grompp -c em.gro  -f em.mdp -o em.tpr  -maxwarn 100
+  527  gmx_mpi mdrun -deffnm em -nb gpu -v
+  528  vim em.mdp
+  529  gmx_mpi grompp -c em.gro  -f em.mdp -o em.tpr  -maxwarn 100
+  530  gmx_mpi mdrun -deffnm em -nb gpu -v
+  531  ls
+  532  vim nvt.mdp
+  533  gmx_mpi grompp -c em.gro  -f nvt.mdp -o nvt.tpr  -maxwarn 100
+  534  gmx_mpi mdrun -deffnm nvt -nb gpu -v
+  535  ls
+  536  gmx_mpi energy -f nvt.edr -o nvt.xvg
+  537  xmgrace nvt.xvg
+  538  gmx_mpi energy -f nvt.edr -o nvt.xvg
+  539  xmgrace nvt.xvg
+  540  gmx_mpi energy -f nvt.edr -o nvt.xvg
+  541  xmgrace nvt.xvg
+  542  gmx_mpi energy -f nvt.edr -o nvt.xvg
+  543  xmgrace nvt.xvg
+  544  ls
+  545  vim nvt.mdp
+  546  gmx_mpi energy -f nvt.edr -o nvt.xvg
+  547  xmgrace nvt.xvg
+  548  ls
+  549  cd FTIR 
+  550  ls
+  551  python3 
+  552  ls
+  553  cd gromacs
+  554  ls
+  555  cd MARTINI
+  556  ls
+  557  cd surface_paper
+  558  ls
+  559  cd PEO
+  560  ls
+  561  cd long
+  562  ls
+  563  source /usr/local/gromacs/bin/GMXRC
+  564  gmx_mpi energy -f npt.edr -o npt.xvg
+  565  gmx_mpi polystat -f npt.edr -o npt.xvg
+  566  gmx_mpi polystat -f npt.xtc
+  567  gmx_mpi polystat -f npt.xtc -s npt.tpr
+  568  vim npt.gro
+  569  cd ..
+  570  ls
+  571  cd short
+  572  ls
+  573  gmx_mpi polystat -f npt.xtc -s npt.tpr
+  574  vim npt.gro
+  575  ls
+  576  vim npt.gro
+  577  cd 
+  578  ls
+  579  sudo apt-get update
+  580  tar xvzf vmd-1.9.4a57.bin.LINUXAMD64-CUDA102-OptiX650-OSPRay185.opengl.tar.gz
+  581  ls
+  582  cd vmd-1.9/4a57
+  583  ls
+  584  cd vmd-1.9.4a57
+  585  ls
+  586  ./configure
+  587  cd src
+  588  ls
+  589  sudo make install
+  590  vmd
+  591  ls
+  592  cd gromacs
+  593  ls
+  594  cd MARTINI
+  595  sl
+  596  ls
+  597  cd surface_paper
+  598  ls
+  599  cd PEO
+  600  ls
+  601  cd ..
+  602  ls
+  603  cd ..
+  604  ls
+  605  conda env list
+  606  conda
+  607  ls
+  608  cd gromacs
+  609  ls
+  610  cd polyester
+  611  ls
+  612  vmd new.gro
+  613  pyinstaller
+  614  pip install pyinstaller
+  615  pyinstaller
+  616  pip3
+  617  pip3 install pyinstaller
+  618  ls
+  619  sudo apt install nmap
+  620  nmap
+  621  hostname -I
+  622  hostname -sn
+  623  nmap -sn 192.168.1.0/24
+  624  gmx
+  625  ls
+  626  cd gromacs
+  627  ls
+  628  gmx_mpi polystat -f npt.edr -o npt.xvg
+  629  source /usr/local/gromacs/bin/GMXRC
+  630  gmx_mpi polystat -f npt.edr -o npt.xvg
+  631  ssh mat@T3610
+  632  ls
+  633  ssh mat@T3610
+  634  ls
+  635  cd gromacs
+  636  ls
+  637  cd methanol
+  638  ls
+  639  cd ..
+  640  ls
+  641  cd ..
+  642  ls
+  643  cd gromacs
+  644  ls
+  645  ls
+  646  cd gromacs 
+  647  ls
+  648  cd methanol
+  649  ls
+  650  cd ..
+  651  ls
+  652  cd methanol
+  653  ls
+  654  vim meOH.top
+  655  vim topol.top
+  656  vim methanol.itp
+  657  ls
+  658  cd gromacs 
+  659  ls
+  660  source /usr/local/gromacs/bin/GMXRC
+  661  cd  /usr/local/gromacs/bin/GMXRC
+  662  cd  /usr/local/gromacs
+  663  ls
+  664  cd bin
+  665  ls
+  666  cd ..
+  667  ls
+  668  cd lib 
+  669  ls
+  670  cd ..
+  671  ls
+  672  cd bin
+  673  ls
+  674  cd ..
+  675  ls
+  676  cd lib 
+  677  ls
+  678  cd ..
+  679  ls
+  680  cd share
+  681  ls
+  682  cd gromacs
+  683  ls
+  684  cd top
+  685  ls
+  686  cd oplsaa.ff
+  687  ls
+  688  vim atomtypes.atp
+  689  vim aminoacids.rtp
+  690  cd ..
+  691  ls
+  692  ssh mat@T3610
+  693  ssh mat@T3610
+  694  pwd
+  695  ifconfig
+  696  mv home/mat/gamess.tar.gz mat@G5/home/mat
+  697  pwd
+  698  mv /home/mat/gamess.tar.gz mat@G5/home/mat
+  699  mv /home/mat/gamess.tar.gz mat@G5/home/mat/
+  700  mv /home/mat/gamess.tar.gz mat@G5/home/mat~
+  701  mv /home/mat/gamess.tar.gz mat@G192.168.0.43:/home/mat~
+  702  scp /home/mat/gamess.tar.gz mat@G192.168.0.43:/home/mat~
+  703  scp /home/mat/gamess.tar.gz mat@192.168.0.43:/home/mat~
+  704  scp -r /home/mat/gamess.tar.gz mat@192.168.0.43:/home/mat~
+  705  ls
+  706  scp -r gamess.tar.gz mat@192.168.0.43:/home/mat~
+  707  scp -r gamess.tar.gz mat@192.168.0.43:/home/mat
+  708  ls
+  709  ssh mat@T3610
+  710  ls
+  711  python -m opendrop
+  712  conda env list
+  713  python -m opendrop
+  714  python3 -m opendrop
+  715  conda
+  716  python3 -m opendrop
+  717  python -m opendrop
+  718  conda env list
+  719  whereis opendrop
+  720  ls
+  721  conda env list
+  722  ssh mat@T3610
+  723  ls
+  724  sudo apt-get install rsync
+  725  ssh-keygen -t rsa
+  726  ssh-copy-id mat@T3610
+  727  ssh mat@T3610
+  728  ls
+  729  ssh -X mat@T3610
+  730  ls
+  731  ssh -X mat@T3610
+  732  ssh mat@T3610
+  733  ssh -X mat@T3610
+  734  ls
+  735  cd psi4
+  736  ls
+  737  cd water
+  738  ls
+  739  sudo apt install unrar
+  740  ls
+  741  unrar e waterdimer.rar
+  742  ls
+  743  vim scan.xyz
+  744  ls
+  745  pwd
+  746  cd ..
+  747  ls
+  748  scp -r mat@T3610/home/mat/psi4
+  749  pwd
+  750  scp -r mat@T3610/home/mat/psi4 /home/mat/psi4
+  751  scp -r mat@T3610:/home/mat/psi4 /home/mat/psi4
+  752  ls
+  753  ls
+  754  lscpu
+  755  pwd
+  756  ls
+  757  cd psi4
+  758  ls
+  759  pwd
+  760  ls
+  761  pwd
+  762  scp -r mat@T3610:~/psi4/august
+  763  scp -r mat@T3610:/psi4/august
+  764  cd .
+  765  cd ..
+  766  scp -r psi4] mat@T3610:/psi4/august
+  767  scp -r psi4 mat@T3610:/psi4/august
+  768  scp -r psi4 mat@T3610:/home/mat/psi4/august
+  769  pwd
+  770  ls
+  771  cd psi4 
+  772  ls
+  773  ifconfig
+  774  scp -r mat@T3610:/home/mat/psi4/august 
+  775  pwd
+  776  scp -r mat@T3610:/home/mat/psi4/august /home/mat/psi4
+  777  ls
+  778  cd august
+  779  ls
+  780  cd psi4
+  781  ls
+  782  cat > plot.py
+  783  ls
+  784  python plot.py
+  785  conda install matplotlib
+  786  pip install matplotlib
+  787  python plot.py
+  788  pwd
+  789  ls
+  790  ssh -X mat@T3610
+  791  s
+  792  ssh -X mat@T3610
+  793  ls
+  794  ssh -X mat@T3610
+  795  ssh -X mat@T3610
+  796  cd gromacs/MARTINI/surface_paper
+  797  ls
+  798  cd PEO
+  799  ls
+  800  cd long
+  801  ls
+  802  mv martini_v3.0.0.itp /home/mat/gromacs/MARTINI/surface_paper/P3HT_PS
+  803  mv martini_v3.0.0_solvents_v1.itp /home/mat/gromacs/MARTINI/surface_paper/P3HT_PS
+  804  ls
+  805  vime em.mdp
+  806  vim em.mdp
+  807  source /usr/local/gromacs/bin/GMXRC
+  808  gmx
+  809  ls
+  810  cd gromacs
+  811  ls
+  812  cd MARTINI
+  813  ls
+  814  cd surface_paper
+  815  ls
+  816  cd P3HT_PS
+  817  ls
+  818  pwd
+  819  ls
+  820  polyply gen_params martini3 -o P3HT.itp P3HT200.itp -seq P3HT:200
+  821  polyply gen_params martini3 -o P3HT.itp P3HT200.itp -name P3HT -seq P3HT:200
+  822  polyply gen_params martini3 -o P3HT200.itp -name P3HT -seq P3HT:200
+  823  polyply gen_params -lib martini3 -o P3HT200.itp -name P3HT -seq P3HT:200
+  824  lw
+  825  ls
+  826  polyply gen_params -lib martini3 -o PS200.itp -name PS -seq PS:200
+  827  ls
+  828  cat > topol.top
+  829  ls
+  830  vim topol.top
+  831  ls
+  832  vim martini_v3.0.0_solventsv1.itp
+  833  vim martini_v3.0.0_solvents_v1.itp
+  834  cat > martini_v3_small_molecules.itp
+  835  ls
+  836  vim topol.top
+  837  polyply gen_coords -p topol.top -o full_box.gro -name full -dens 1000
+  838  ls
+  839  vim topol.top
+  840  polyply gen_coords -p topol.top -o full_box.gro -name full -dens 1000
+  841  ls
+  842  vim topol.top
+  843  polyply gen_coords -p topol.top -o full_box.gro -name full -dens 1000
+  844  ls
+  845  cat > em.mdp
+  846  ls
+  847  gmx grommp
+  848  gmx
+  849  source /usr/local/gromacs/bin/GMXRC
+  850  ls
+  851  gmx 
+  852  whereis gromacs
+  853  source /usr/local/gromacs
+  854  source /usr/local/gromacs/
+  855  cd  /usr/local/gromacs/
+  856  ls
+  857  cd bin
+  858  ls
+  859  source /usr/local/gromacs/bin/GMXRC
+  860  gmx
+  861  gmx_mpi
+  862  ls
+  863  cd 
+  864  ls
+  865  cd gromacs
+  866  ls
+  867  cd ..
+  868  ls
+  869  cd gromacs
+  870  ls
+  871  cd ..
+  872  ls
+  873  cd gromacs
+  874  ls
+  875  cd MARTINI
+  876  ls
+  877  cd surface_paper
+  878  ls
+  879  cd P3HT_PS
+  880  ls
+  881  gmx_mpi grompp -f em.mdp -c full_box.gro -p topol.top -o full_box.tpr
+  882  ls
+  883  gmx_mpi mdrun -defnm full_box -nb gpu -v 
+  884  gmx_mpi mdrun -deffnm full_box -nb gpu -v 
+  885  ls
+  886  vmd full_box.gro
+  887  cd ..
+  888  scp P3HT_PS mat@T3610/home/mat/gromacs/MARTINI/surface_paper
+  889  scp -r P3HT_PS mat@T3610/home/mat/gromacs/MARTINI/surface_paper
+  890  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper
+  891  ls
+  892  cd PEO
+  893  ls
+  894  cd long 
+  895  ls
+  896  vim npt.mdp
+  897  cd ..
+  898  ls
+  899  cd short
+  900  ls
+  901  vim npt.mdp
+  902  ssh -X mat@T3610
+  903  ls
+  904  gromacs
+  905  cd gromacs
+  906  ls
+  907  cd MARTINI
+  908  ls
+  909  cd surface_paper
+  910  ls
+  911  cd P3HT_PS
+  912  ls
+  913  vim topol.top
+  914  polyply gen_coords -p topol.top -o P3HT_CLBZ.gro -name full -dens 1000
+  915  ls
+  916  cd ..
+  917  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper
+  918  ls
+  919  cd PEO
+  920  ls
+  921  cd long
+  922  ls
+  923  cd ..
+  924  ls
+  925  cd ..
+  926  ls
+  927  cd ..
+  928  ls
+  929  cd ..
+  930  ls
+  931  cd martini
+  932  cd MARTINI
+  933  ls
+  934  cd surface_paper
+  935  ks
+  936  ls
+  937  cd surface_paper
+  938  ls
+  939  cd ..
+  940  ls
+  941  cd surface_paper
+  942  ls
+  943  cs P3HT_PS
+  944  cd P3HT_PS
+  945  ls
+  946  cd ..
+  947  ls
+  948  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS 
+  949  ls
+  950  cd P3HT_PS
+  951  ls
+  952  pwd
+  953  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS /home/mat/gromacs/MARTINI/surface_paper/P3HT_PS
+  954  ls
+  955  cd P3HT_PS
+  956  ls
+  957  vmd npt.gro
+  958  ls
+  959  vim topol.top
+  960  polyply gen_coords -p topol.top -o P3HT_CLBZ.gro -name full -dens 1000
+  961  ls
+  962  vim topol.top
+  963  polyply gen_coords -p topol.top -o P3HT_CLBZ.gro -name full -dens 1000
+  964  ls
+  965  source /usr/local/gromacs/bin/GMXRC
+  966  vim topol.top
+  967  polyply gen_coords -p topol.top -o P3HT_PS_CLBZ.gro -name P3HT_PS_CLBZ -dens 1000
+  968  gmx_mpi grompp -f em.mdp -c P3HT_PS_CLBZ.gro -p topol.top -o P3HT_PS_CLBZ.tpr
+  969  gmx_mpi mdrun -deffnm full_bo -nb gpu -v 
+  970  ls
+  971  gmx_mpi mdrun -deffnm P3HT_PS_CLBZ.tpr -nb gpu -v 
+  972  gmx_mpi mdrun -deffnm P3HT_PS_CLBZ -nb gpu -v 
+  973  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS /home/mat/gromacs/MARTINI/surface_paper/
+  974  cd ..
+  975  ls
+  976  rm -r P3HT_PS
+  977  ls
+  978  polyply gen_coords -p topol.top -o P3HT_PS_CLBZ.gro -name P3HT_PS_CLBZ -dens 1000
+  979  cd ..
+  980  ls
+  981  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS /home/mat/gromacs/MARTINI/surface_paper/
+  982  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS /home/mat/gromacs/MARTINI/surface_paper
+  983  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper
+  984  ls
+  985  rm -r P3HT_PS
+  986  pwd
+  987  scp -r mat@T3610:/home/mat/gromacs/MARTINI/surface_paper /home/mat/gromacs/MARTINI/surface_paper
+  988  ssh -X mat@T3610
+  989  s
+  990  ssh -X mat@T3610
+  991  s
+  992  ssh -X mat@T3610
+  993  ls
+  994  cd gromacs
+  995  ls
+  996  cd MARTINI
+  997  ls
+  998  cd surface_paper
+  999  ls
+ 1000  cd surface_paper
+ 1001  ls
+ 1002  cd P3HT_PS
+ 1003  ls
+ 1004  vmd production.gro
+ 1005  source /usr/local/gromacs/bin/GMXRC
+ 1006  gmx_mpi energy -f production.xtc 
+ 1007  gmx_mpi energy -f production.edr
+ 1008  gmx_mpi energy -f production.edr -o density.xvg
+ 1009  xmgrace density.xvg
+ 1010  gmx_mpi energy -f production.edr -o energy.xvg
+ 1011  xmgrace energy.xvg
+ 1012  gmx_mpi energy -f production.edr -o potential.xvg
+ 1013  xmgrace potential.xvg
+ 1014  xmgrace density.xvg
+ 1015  ls
+ 1016  polyply gen_coords -p topols.top -o P3HT_PS_CLBZ.gro -name P3HT_PS_CLBZ -dens 1000
+ 1017  cd ..
+ 1018  ls
+ 1019  cd P3HT_PS
+ 1020  ls
+ 1021  polyply gen_coords -p CLBZ.top -o CLBZ.gro -name CLBZ -dens 1100
+ 1022  ls
+ 1023  polyply gen_coords -p CLBZ_P3HT.top -o CLBZ_P3HT.gro -name CLBZ_P3HT -dens 1100
+ 1024  polyply gen_params -lib martini3 -o P3HT.itp -name P3HT -seq P3HT:301
+ 1025  polyply gen_params -lib martini3 -o PS.itp -name PS -seq PS:525
+ 1026  ls
+ 1027  polyply gen_coords -p CLBZ_P3HT.top -o CLBZ_P3HT.gro -name CLBZ_P3HT -dens 1100
+ 1028  polyply gen_coords -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS.gro -name CLBZ_P3HT_PS -dens 1100
+ 1029  ls
+ 1030  gmx_mpi grompp -f em.mdp -c CLBZ.gro -p CLBZ.top -o CLBZ_em.tpr
+ 1031  gmx_mpi mdrun -deffnm CLBZ_em -nb gpu -v 
+ 1032  vim em.mdp
+ 1033  gmx_mpi grompp -f em.mdp -c CLBZ.gro -p CLBZ.top -o CLBZ_em.tpr
+ 1034  gmx_mpi mdrun -deffnm CLBZ_em -nb gpu -v 
+ 1035  polyply gen_coords -p CLBZ.top -o CLBZ.gro -name CLBZ -dens 1000
+ 1036  gmx_mpi grompp -f em.mdp -c CLBZ.gro -p CLBZ.top -o CLBZ_em.tpr
+ 1037  gmx_mpi mdrun -deffnm CLBZ_em -nb gpu -v 
+ 1038  vim em.mdp
+ 1039  gmx_mpi grompp -f em.mdp -c CLBZ.gro -p CLBZ.top -o CLBZ_em.tpr
+ 1040  gmx_mpi mdrun -deffnm CLBZ_em -nb gpu -v 
+ 1041  vim em.mdp
+ 1042  gmx_mpi grompp -f em.mdp -c CLBZ.gro -p CLBZ.top -o CLBZ_em.tpr
+ 1043  gmx_mpi mdrun -deffnm CLBZ_em -nb gpu -v 
+ 1044  vim production.mdp
+ 1045  gmx_mpi grompp -f production.mdp -c CLBZ_em.gro -p CLBZ.top -o CLBZ_production.tpr
+ 1046  gmx_mpi mdrun -deffnm CLBZ_production -nb gpu -v 
+ 1047  vim production.mdp
+ 1048  gmx_mpi grompp -f production.mdp -c CLBZ_em.gro -p CLBZ.top -o CLBZ_production.tpr
+ 1049  gmx_mpi mdrun -deffnm CLBZ_production -nb gpu -v 
+ 1050  gmx_mpi energy -f CLBZ_production.edr -o density.xvg
+ 1051  xmgrace density.xvg
+ 1052  .top -o CLBZ.gro -name CLBZ -dens 1100
+ 1053  gmx_mpi grompp -f em.mdp -c CLBZ.gro -p CLBZ.top -o CLBZ_em.tpr
+ 1054  gmx_mpi mdrun -deffnm CLBZ_em -nb gpu -v 
+ 1055  gmx_mpi grompp -f production.mdp -c CLBZ_em.gro -p CLBZ.top -o CLBZ_production.tpr
+ 1056  vim production.mdp
+ 1057  gmx_mpi grompp -f production.mdp -c CLBZ_em.gro -p CLBZ.top -o CLBZ_production.tpr
+ 1058  gmx_mpi mdrun -deffnm CLBZ_production -nb gpu -v 
+ 1059  gmx_mpi energy -f CLBZ_production.edr -o density.xvg
+ 1060  xmgrace density.xvg
+ 1061  ls
+ 1062  gmx_mpi grompp -f em.mdp -c CLBZ_P3HT.gro -p CLBZ_P3HT.top -o CLBZ_P3HT_em.tpr
+ 1063  gmx_mpi mdrun -deffnm CLBZ_P3HT_em -nb gpu -v 
+ 1064  ls
+ 1065  gmx_mpi grompp -f production.mdp -c CLBZ_P3HT_em.gro -p CLBZ_P3HT.top -o CLBZ_P3HT_production.tpr
+ 1066  gmx_mpi mdrun -deffnm CLBZ_P3HT_production -nb gpu -v 
+ 1067  ls
+ 1068  gmx_mpi energy -f CLBZ_P3HT_production.edr -o CLBZ_P3HT_density.xvg
+ 1069  xmgrace CLBZ_P3HT_density.xvg
+ 1070  ls
+ 1071  gmx_mpi grompp -f em.mdp -c CLBZ_P3HT_PS.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_em.tpr
+ 1072  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_em -nb gpu -v 
+ 1073  ls
+ 1074  gmx_mpi grompp -f production.mdp -c CLBZ_P3HT_PS_em.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_production.tpr
+ 1075  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_production -nb gpu -v 
+ 1076  ls
+ 1077  # read the bottom of the .gro file to determine the size of the box, file name needs changing 
+ 1078  # only the CLBZ solvent to begin with
+ 1079  tail -1 CLBZ_production.gro; 
+ 1080  coord = $(tail -n 1 CLBZ_production.gro);
+ 1081  #print the initial box size 
+ 1082  echo "$coord";
+ 1083  #extend the z axis to 20nm to create the vacum interface 
+ 1084  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1085  colArray[2]=20.00;
+ 1086  gmx editconf -f CLBZ_production.gro -box "${colArray[@]}" -o CLBZ_extended.gro; 
+ 1087  echo interface created for CLBZ ;
+ 1088  #CLBZ + P3HT 
+ 1089  tail -1 CLBZ_P3HT_production.gro; 
+ 1090  coord = $(tail -n 1 CLBZ_P3HT_production.gro);
+ 1091  #print the initial box size 
+ 1092  echo "$coord";
+ 1093  #extend the z axis to 20nm to create the vacum interface 
+ 1094  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1095  colArray[2]=20.00;
+ 1096  gmx editconf -f CLBZ_P3HT_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_extended.gro; 
+ 1097  echo interface created for CLBZ + P3HT ;
+ 1098  ## CLBZ + P3HT + PS
+ 1099  tail -1 CLBZ_P3HT_PS_production.gro; 
+ 1100  coord = $(tail -n 1 CLBZ_P3HT_PS_production.gro);
+ 1101  #print the initial box size 
+ 1102  echo "$coord";
+ 1103  #extend the z axis to 20nm to create the vacum interface 
+ 1104  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1105  colArray[2]=20.00;
+ 1106  gmx editconf -f CLBZ_P3HT_PS_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro; 
+ 1107  echo interface created for CLBZ + P3HT + PS  ;
+ 1108  source /usr/local/gromacs/bin/GMXRC
+ 1109  # read the bottom of the .gro file to determine the size of the box, file name needs changing 
+ 1110  # only the CLBZ solvent to begin with
+ 1111  tail -1 CLBZ_production.gro; 
+ 1112  coord = $(tail -n 1 CLBZ_production.gro);
+ 1113  #print the initial box size 
+ 1114  echo "$coord";
+ 1115  #extend the z axis to 20nm to create the vacum interface 
+ 1116  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1117  colArray[2]=20.00;
+ 1118  gmx editconf -f CLBZ_production.gro -box "${colArray[@]}" -o CLBZ_extended.gro; 
+ 1119  echo interface created for CLBZ ;
+ 1120  #CLBZ + P3HT 
+ 1121  tail -1 CLBZ_P3HT_production.gro; 
+ 1122  coord = $(tail -n 1 CLBZ_P3HT_production.gro);
+ 1123  #print the initial box size 
+ 1124  echo "$coord";
+ 1125  #extend the z axis to 20nm to create the vacum interface 
+ 1126  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1127  colArray[2]=20.00;
+ 1128  gmx editconf -f CLBZ_P3HT_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_extended.gro; 
+ 1129  echo interface created for CLBZ + P3HT ;
+ 1130  ## CLBZ + P3HT + PS
+ 1131  tail -1 CLBZ_P3HT_PS_production.gro; 
+ 1132  coord = $(tail -n 1 CLBZ_P3HT_PS_production.gro);
+ 1133  #print the initial box size 
+ 1134  echo "$coord";
+ 1135  #extend the z axis to 20nm to create the vacum interface 
+ 1136  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1137  colArray[2]=20.00;
+ 1138  gmx editconf -f CLBZ_P3HT_PS_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro; 
+ 1139  echo interface created for CLBZ + P3HT + PS  ;
+ 1140  # read the bottom of the .gro file to determine the size of the box, file name needs changing 
+ 1141  # only the CLBZ solvent to begin with
+ 1142  tail -1 CLBZ_production.gro; 
+ 1143  coord = $(tail -n 1 CLBZ_production.gro);
+ 1144  #print the initial box size 
+ 1145  echo "$coord";
+ 1146  #extend the z axis to 20nm to create the vacum interface 
+ 1147  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1148  colArray[2]=20.00;
+ 1149  gmx_mpi editconf -f CLBZ_production.gro -box "${colArray[@]}" -o CLBZ_extended.gro; 
+ 1150  echo interface created for CLBZ ;
+ 1151  #CLBZ + P3HT 
+ 1152  tail -1 CLBZ_P3HT_production.gro; 
+ 1153  coord = $(tail -n 1 CLBZ_P3HT_production.gro);
+ 1154  #print the initial box size 
+ 1155  echo "$coord";
+ 1156  #extend the z axis to 20nm to create the vacum interface 
+ 1157  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1158  colArray[2]=20.00;
+ 1159  gmx_mpi editconf -f CLBZ_P3HT_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_extended.gro; 
+ 1160  echo interface created for CLBZ + P3HT ;
+ 1161  ## CLBZ + P3HT + PS
+ 1162  tail -1 CLBZ_P3HT_PS_production.gro; 
+ 1163  coord = $(tail -n 1 CLBZ_P3HT_PS_production.gro);
+ 1164  #print the initial box size 
+ 1165  echo "$coord";
+ 1166  #extend the z axis to 20nm to create the vacum interface 
+ 1167  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1168  colArray[2]=20.00;
+ 1169  gmx_mpi editconf -f CLBZ_P3HT_PS_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro; 
+ 1170  echo interface created for CLBZ + P3HT + PS  ;
+ 1171  ls
+ 1172  cd ..
+ 1173  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS /home/mat/gromacs/MARTINI/surface_paper/
+ 1174  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS /home/mat/gromacs/MARTINI/surface_paper
+ 1175  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS
+ 1176  ls
+ 1177  cd P3HT_PS
+ 1178  ls
+ 1179  vim CLBZ_P3HT_PS.gro
+ 1180  vim CLBZ_P3HT_PS_extended.gro
+ 1181  gmx_mpi
+ 1182  ls
+ 1183  gmx_mpi grompp -f em.mdp -c CLBZ_extended.gro -p CLBZ.top -o CLBZ_em_extended.tpr
+ 1184  gmx_mpi mdrun -deffnm CLBZ_extend -nb gpu -v 
+ 1185  ls
+ 1186  gmx_mpi mdrun -deffnm CLBZ_em_extended -nb gpu -v 
+ 1187  ls
+ 1188  gmx_mpi grompp -f production.mdp -c CLBZ_em_extended.gro -p CLBZ.top -o CLBZ_extended_em.tpr
+ 1189  gmx_mpi grompp -f production.mdp -c CLBZ_em_extended.gro -p CLBZ.top -o CLBZ_extended_production.tpr
+ 1190  gmx_mpi mdrun -deffnm CLBZ_extended_production -nb gpu -v 
+ 1191  vim em.mdp
+ 1192  ls
+ 1193  vim em.mdp
+ 1194  cd ..
+ 1195  ls
+ 1196  cd PEO
+ 1197  ls
+ 1198  cd long
+ 1199  ls
+ 1200  vim em.mdp
+ 1201  ls
+ 1202  cd ..
+ 1203  ls
+ 1204  cd ..
+ 1205  ls
+ 1206  cd ..
+ 1207  ls
+ 1208  cd surface_paper
+ 1209  ls
+ 1210  cd P3HT_PS
+ 1211  ls
+ 1212  polyply gen_coords -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS.gro -name CLBZ_P3HT_PS -dens 1000
+ 1213  cd ..
+ 1214  ls
+ 1215  cd P3HT_PS
+ 1216  ls
+ 1217  cat > steep.mdp
+ 1218  ls
+ 1219  cat > cg.mdp
+ 1220  ls
+ 1221  cat > sft.mdp 
+ 1222  ls
+ 1223  source /usr/local/gromacs/bin/GMXRC
+ 1224  gmx_mpi grompp -f steep.mdp -c CLBZ_P3HT_PS.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_steep.tpr
+ 1225  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_steep -nb gpu -v 
+ 1226  gmx_mpi grompp -f cg.mdp -c CLBZ_P3HT_PS_steep.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_cg.tpr
+ 1227  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_cg -nb gpu -v 
+ 1228  ls
+ 1229  coord=$(tail -n 1 CLBZ_P3HT_PS_cg.gro)
+ 1230  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1231  colArray[2]=20.00;
+ 1232  gmx_mpi editconf -f CLBZ_P3HT_PS_cg.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro;
+ 1233  vim sft.mdp
+ 1234  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_extended_sft.tpr
+ 1235  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_sft -nb gpu -v 
+ 1236  gmx_mpi grompp -f steep.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_extended_steep.tpr
+ 1237  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_steep -nb gpu -v 
+ 1238  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_steep.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_extended_sft.tpr
+ 1239  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_sft -nb gpu -v 
+ 1240  ls
+ 1241  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_sft.tpr
+ 1242  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_sft -nb gpu -v 
+ 1243  gmx_mpi grompp -f steep.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_extended_steep.tpr
+ 1244  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_steep -nb gpu -v 
+ 1245  gmx_mpi grompp -f cg.mdp -c CLBZ_P3HT_PS_extended_steep.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_extended_cg.tpr
+ 1246  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_cg -nb gpu -v 
+ 1247  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_cg.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_sft.tpr
+ 1248  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_sft -nb gpu -v 
+ 1249  vim sft.mdp
+ 1250  ls
+ 1251  vmd CLBZ_P3HT_PS_gc.gro
+ 1252  vmd CLBZ_P3HT_PS_cg.gro
+ 1253  ls
+ 1254  vmd CLBZ_P3HT_PS_extended_cg.gro
+ 1255  vim CLBZ_P3HT_PS_extended_cg.gro
+ 1256  coord=$(tail -n 1 CLBZ_P3HT_PS_cg.gro)
+ 1257  declare -a colArray=($(echo $coord | tr ',' ' '))
+ 1258  colArray[2]=30.00
+ 1259  gmx_mpi editconf -f CLBZ_P3HT_PS_cg.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro;
+ 1260  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_sft.tpr
+ 1261  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_sft -nb gpu -v 
+ 1262  ls
+ 1263  gmx_mpi grompp -f production.mdp -c CLBZ_P3HT_PS_cg.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_production.tpr
+ 1264  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_production -nb gpu -v 
+ 1265  gmx_mpi grompp -f production.mdp -c CLBZ_P3HT_PS_cg.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_production.tpr
+ 1266  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_production -nb gpu -v 
+ 1267  coord=$(tail -n 1 CLBZ_P3HT_PS_production.gro)
+ 1268  declare -a colArray=($(echo $coord | tr ',' ' '))
+ 1269  colArray[2]=30.00
+ 1270  gmx_mpi editconf -f CLBZ_P3HT_PS_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro;
+ 1271  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_sft.tpr
+ 1272  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_sft -nb gpu -v 
+ 1273  vmd CLBZ_P3HT_PS_extended.gro
+ 1274  vim production.gro
+ 1275  vim production.mdp
+ 1276  gmx_mpi grompp -f production.mdp -c CLBZ_P3HT_PS_cg.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_production.tpr
+ 1277  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_production -nb gpu -v 
+ 1278  vmd production.gro
+ 1279  vmd CLBZ_P3HT_PS_production.gro
+ 1280  coord=$(tail -n 1 CLBZ_P3HT_PS_production.gro)
+ 1281  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1282  colArray[2]=30.00
+ 1283  gmx_mpi editconf -f CLBZ_P3HT_PS_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro
+ 1284  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_sft.tpr
+ 1285  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_sft -nb gpu -v 
+ 1286  vmd CLBZ_P3HT_PS_extended.gro
+ 1287  vmd CLBZ_P3HT_PS_production.gro
+ 1288  ssh -X mat@T3610
+ 1289  ls
+ 1290  cd gromacs
+ 1291  ls
+ 1292  cd MARTINI
+ 1293  ls
+ 1294  cd surface_paper
+ 1295  ls
+ 1296  cd P3HT_PS
+ 1297  ls
+ 1298  vmd CLBZ_P3HT_PS_production.gro
+ 1299  vim production.gro
+ 1300  vim production.mdp
+ 1301  source /usr/local/gromacs/bin/GMXRC
+ 1302  gmx_mpi grompp -f production.mdp -c CLBZ_P3HT_PS_cg.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_production.tpr
+ 1303  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_production -nb gpu -v 
+ 1304  vmd CLBZ_P3HT_PS_production.gro
+ 1305  vim production.mdp
+ 1306  vmd CLBZ_P3HT_PS_production.gro
+ 1307  gmx trjconv -s CLBZ_P3HT_PS_production.tpr -f CLBZ_P3HT_PS_production.xtc -o last_frame.gro -dump -1
+ 1308  source /usr/local/gromacs/bin/GMXRC
+ 1309  gmx trjconv -s CLBZ_P3HT_PS_production.tpr -f CLBZ_P3HT_PS_production.xtc -o last_frame.gro -dump -1
+ 1310  gmx_mpi trjconv -s CLBZ_P3HT_PS_production.tpr -f CLBZ_P3HT_PS_production.xtc -o last_frame.gro -dump -1
+ 1311  vmd last_frame.gro
+ 1312  coord=$(tail -n 1 last_frame.gro)
+ 1313  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1314  colArray[2]=30.00
+ 1315  gmx_mpi editconf -f last_frame.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro;
+ 1316  vmd CLBZ_P3HT_PS_extended.gro
+ 1317  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_sft.tpr
+ 1318  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_sft -nb gpu -v 
+ 1319  vmd CLBZ_P3HT_PS_extended.gro 
+ 1320  gmx_mpi grompp -f steep.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_steep.tpr
+ 1321  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_steep -nb gpu -v 
+ 1322  gmx_mpi grompp -f cg.mdp -c CLBZ_P3HT_PS_extended_steep.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_cg.tpr
+ 1323  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_cg -nb gpu -v 
+ 1324  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_extended_cg.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_sf.tpr
+ 1325  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_extended_sft -nb gpu -v 
+ 1326  cat > min.mdp
+ 1327  cat > preNPT.mdp
+ 1328  ls
+ 1329  gmx_mpi grompp -f minim.mdp -c CLBZ_P3HT_PS.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_minim.tpr
+ 1330  ls
+ 1331  gmx_mpi grompp -f min.mdp -c CLBZ_P3HT_PS.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_minim.tpr
+ 1332  gmx_mpi grompp -f minim.mdp -c CLBZ_P3HT_PS.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_min.tpr
+ 1333  gmx_mpi grompp -f min.mdp -c CLBZ_P3HT_PS.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_min.tpr
+ 1334  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_min -nb gpu -v 
+ 1335  gmx_mpi grompp -f preNPT.mdp -c CLBZ_P3HT_PS_min.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_preNPT.tpr
+ 1336  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_preNPT -nb gpu -v 
+ 1337  vim preNPT.mdp
+ 1338  coord=$(tail -n 1 CLBZ_P3HT_PS_preNPT.gro)
+ 1339  declare -a colArray=($(echo $coord | tr ',' ' '));
+ 1340  colArray[2]=30.00
+ 1341  gmx_mpi editconf -f CLBZ_P3HT_PS_preNPT.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro;
+ 1342  gmx_mpi grompp -f sft.mdp -c CLBZ_P3HT_PS_extended.gro -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS_sft.tpr
+ 1343  gmx_mpi mdrun -deffnm CLBZ_P3HT_PS_sft -nb gpu -v 
+ 1344  vmd CLBZ_P3HT_PS_sft.gro
+ 1345  gmx_mpi density -f CLBZ_P3HT_PS_sft - 
+ 1346  gmx_mpi density -f CLBZ_P3HT_PS_sft 
+ 1347  vim CLBZ_P3HT_PS_sft.gro
+ 1348  gmx_mpi density -f CLBZ_P3HT_PS_sft -s CLBZ_P3HT_PS_sft.tpr
+ 1349  xmgrace density.xvg
+ 1350  gmx_mpi density -f CLBZ_P3HT_PS_sft -s CLBZ_P3HT_PS_sft.tpr
+ 1351  xmgrace density.xvg
+ 1352  ls
+ 1353  cd ..
+ 1354  ls
+ 1355  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS /home/mat/gromacs/MARTINI/surface_paper/new
+ 1356  scp -r P3HT_PS mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS/new
+ 1357  mkdir new
+ 1358  ls
+ 1359  cd new
+ 1360  ls
+ 1361  ssh -X mat@T3610
+ 1362  ls
+ 1363  cd gromacs
+ 1364  ls
+ 1365  cd MARTINI
+ 1366  ls
+ 1367  cd surface_paper
+ 1368  ls
+ 1369  scp -r mat@T3610:/home/mat/gromacs/MARTINI/surface_paper/P3HT_PS /home/mat/gromacs/MARTINI/surface_paper/
+ 1370  ls
+ 1371  ks
+ 1372  ls
+ 1373  cd P3HT
+ 1374  ls
+ 1375  cd P3HT_PS
+ 1376  ls
+ 1377  cd new
+ 1378  ls
+ 1379  gmx_mpi density -f CLBZ_P3HT_extended_production 
+ 1380  source /usr/local/gromacs/bin/GMXRC
+ 1381  gmx_mpi density -f CLBZ_P3HT_extended_production 
+ 1382  ls
+ 1383  gmx_mpi density -f CLBZ_P3HT_extended_production 
+ 1384  ls
+ 1385  gmx_mpi density -f CLBZ_P3HT_extended_production.xtc 
+ 1386  ls
+ 1387  gmx_mpi density -f CLBZ_P3HT_PS_extended_production.xtc 
+ 1388  ls
+ 1389  cd gromacs
+ 1390  ls
+ 1391  du
+ 1392  du -h
+ 1393  dh -sh /var
+ 1394  ls -l 
+ 1395  du
+ 1396  du -h 
+ 1397  cd gromacs
+ 1398  ls
+ 1399  cd MARTINI
+ 1400  ls
+ 1401  cd surface_paper
+ 1402  ls
+ 1403  rm -r P3HT_PS
+ 1404  ls
+ 1405  cd new
+ 1406  ls
+ 1407  source /usr/local/gromacs/bin/GMXRC
+ 1408  gmx_mpi density -f CLBZ_P3HT_PS_extended_production.xtc -o PS_with.xvg
+ 1409  ls
+ 1410  gmx_mpi density -f CLBZ_P3HT_PS_extended_production.trr -o PS_with.xvg
+ 1411  ls
+ 1412  cd ..
+ 1413  ls
+ 1414  gmx_mpi density -f CLBZ_P3HT_PS_extended_production.xtc -s CLBZ_P3HT_PS_extended_protuction.tpr -o PS_with.xvg
+ 1415  ls
+ 1416  cd new
+ 1417  ls
+ 1418  gmx_mpi density -f CLBZ_P3HT_PS_extended_production.xtc -s CLBZ_P3HT_PS_extended_protuction.tpr -o PS_with.xvg
+ 1419  cd ..
+ 1420  ls
+ 1421  rm -r new
+ 1422  ls
+ 1423  mkdir P3HT_PS
+ 1424  ls
+ 1425  cd P3HT_PS
+ 1426  ls
+ 1427  touch ~/.Xauthority
+ 1428  export DISPLAY=:0
+ 1429  ssh -X mat@T3610
+ 1430  ssh -X mat@T3610
+ 1431  ssh mat@192.168.0.43
+ 1432  ssh -X mat@T3610
+ 1433  ssh mat@192.168.0.43
+ 1434  ls
+ 1435  cd gromacs
+ 1436  ls
+ 1437  cd MARTINI
+ 1438  ls
+ 1439  cd surface_paper
+ 1440  ls
+ 1441  cd P3HT_PS
+ 1442  ls
+ 1443  history > command_history.txt

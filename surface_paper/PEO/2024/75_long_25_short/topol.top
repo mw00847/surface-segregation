@@ -1,0 +1,13 @@
+#include "martini_v3.0.0.itp"
+#include "martini_v3.0.0_solvents_v1.itp"
+#include "PEO200.itp"
+#include "PEO44.itp"
+[ system ]
+; name
+blend of PEO200 and PEO44 in water
+ 
+[ molecules ]
+; name  number
+PEO200 10 
+PEO44 10
+W 9760

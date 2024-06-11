@@ -1,0 +1,85 @@
+
+;general input for MARTINI
+
+
+title                    = various polymer blends 
+
+integrator               = md
+dt                       = 0.01  
+nsteps                   = 200000
+
+;output 
+
+nstcomm                  = 100
+comm-grps                = 
+
+nstxout                  = 0
+nstvout                  = 0
+nstfout                  = 0
+nstlog                   = 1000
+nstenergy                = 1000
+nstxout-compressed       = 1000
+energygrps               = System
+
+cutoff-scheme            = Verlet
+nstlist                  = 10
+ns_type                  = grid
+pbc                      = xyz
+verlet-buffer-tolerance  = 0.005
+
+coulombtype              = reaction-field 
+rcoulomb                 = 1.1
+epsilon_r                = 15   ; 2.5 (with polarizable water)
+epsilon_rf               = 0
+vdw_type                 = cutoff  
+vdw-modifier             = Potential-shift-verlet
+rvdw                     = 1.1
+
+; MARTINI and TEMPERATURE/PRESSURE
+; Good temperature control can be achieved with the velocity rescale (V-rescale)
+; thermostat using a coupling constant of the order of 1 ps. Even better 
+; temperature control can be achieved by reducing the temperature coupling 
+; constant to 0.1 ps, although with such tight coupling (approaching 
+; the time step) one can no longer speak of a weak-coupling scheme.
+; We therefore recommend a coupling time constant of at least 0.5 ps.
+; The Berendsen thermostat is less suited since it does not give
+; a well described thermodynamic ensemble.
+; 
+; Pressure can be controlled with the Parrinello-Rahman barostat, 
+; with a coupling constant in the range 4-8 ps and typical compressibility 
+; in the order of 10e-4 - 10e-5 bar-1. Note that, for equilibration purposes, 
+; the Berendsen barostat probably gives better results, as the Parrinello-
+; Rahman is prone to oscillating behaviour. For bilayer systems the pressure 
+; coupling should be done semiisotropic.
+
+; pressure coupling either Beresden or V-rescale?
+; simulated Beresden SFT = 68mN/M, V-rescale = 68mN/M
+
+tcoupl                   = v-rescale
+
+;coupling groups
+tc-grps                  = System
+
+;time constant for temperature coupling 
+tau_t                    = 1.0
+
+ref_t                    = 298
+
+;using the beresden pressure coupling
+
+Pcoupl                   = Berendsen
+Pcoupltype               = isotropic
+
+ref_p = 1.0
+
+compressibility = 3e-4
+
+;time constant for pressure coupling 
+tau_p = 12.0
+
+gen_vel = no
+
+refcoord_scaling         = all
+
+constraints              = none 
+constraint_algorithm     = Lincs

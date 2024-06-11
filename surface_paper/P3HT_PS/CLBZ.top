@@ -1,0 +1,9 @@
+#include "martini_v3.0.0.itp"
+#include "martini3solvents.itp"
+[ system ]
+;name
+solvent
+
+[ molecules ]
+;name number
+CLBZ 5000

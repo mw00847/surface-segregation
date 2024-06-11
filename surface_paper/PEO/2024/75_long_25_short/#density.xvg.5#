@@ -1,0 +1,74 @@
+# This file was created Mon Mar 11 16:56:35 2024
+# Created by:
+#                  :-) GROMACS - gmx density, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/PEO/2024/75_long_25_short
+# Command line:
+#   gmx_mpi density -f blend_extend_preNPT.xtc -s blend_extend_preNPT.tpr -o density.xvg
+# gmx density is part of G R O M A C S:
+#
+# Green Red Orange Magenta Azure Cyan Skyblue
+#
+@    title "Partial density"
+@    xaxis  label "Coordinate (nm)"
+@    yaxis  label "Density (kg m\S-3\N)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "PEO"
+    0.216192          12.0431
+    0.648575          8.93273
+     1.08096          10.3125
+     1.51334          10.7566
+     1.94573          14.6339
+     2.37811            23.57
+     2.81049          37.5586
+     3.24288          44.8462
+     3.67526          42.4418
+     4.10764          40.7558
+     4.54003          41.1759
+     4.97241          38.3112
+      5.4048          27.0007
+     5.83718          22.1086
+     6.26956          20.0595
+     6.70195          15.6193
+     7.13433          14.6227
+     7.56671          15.9999
+      7.9991          14.8099
+     8.43148          14.6021
+     8.86386          11.9117
+     9.29625          14.6889
+     9.72863          15.7962
+      10.161          17.0175
+     10.5934          21.1108
+     11.0258            25.36
+     11.4582          31.4959
+     11.8906          28.7345
+     12.3229           26.372
+     12.7553          22.6815
+     13.1877          17.3868
+     13.6201          11.2171
+     14.0525          11.3434
+     14.4849          12.6284
+     14.9172          13.2418
+     15.3496          11.6539
+      15.782          11.1338
+     16.2144            11.68
+     16.6468          16.5997
+     17.0792          16.4244
+     17.5115          17.8245
+     17.9439          21.8536
+     18.3763          24.6494
+     18.8087          28.0441
+     19.2411          32.9648
+     19.6735          34.6293
+     20.1058           27.412
+     20.5382           21.667
+     20.9706          18.0866
+      21.403          15.4841

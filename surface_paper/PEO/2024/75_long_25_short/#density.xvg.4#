@@ -1,0 +1,74 @@
+# This file was created Mon Mar 11 16:28:13 2024
+# Created by:
+#                  :-) GROMACS - gmx density, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/PEO/2024/75_long_25_short
+# Command line:
+#   gmx_mpi density -f blend_extend_preNPT.xtc -s blend_extend_preNPT.tpr -o density.xvg
+# gmx density is part of G R O M A C S:
+#
+# Good gRace! Old Maple Actually Chews Slate
+#
+@    title "Partial density"
+@    xaxis  label "Coordinate (nm)"
+@    yaxis  label "Density (kg m\S-3\N)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "PEO200"
+    0.216192          27.6921
+    0.648575          43.3009
+     1.08096          68.0815
+     1.51334          87.8476
+     1.94573           100.72
+     2.37811           90.773
+     2.81049          81.3719
+     3.24288          74.2051
+     3.67526          62.2091
+     4.10764          74.7336
+     4.54003           93.114
+     4.97241          108.646
+      5.4048          128.589
+     5.83718          146.109
+     6.26956          153.426
+     6.70195          140.364
+     7.13433          138.657
+     7.56671          125.173
+      7.9991          121.663
+     8.43148          127.288
+     8.86386          130.318
+     9.29625           132.86
+     9.72863          126.435
+      10.161          119.309
+     10.5934          107.044
+     11.0258          93.7236
+     11.4582          85.6595
+     11.8906          88.1708
+     12.3229           88.133
+     12.7553           83.558
+     13.1877          79.6958
+     13.6201           84.601
+     14.0525          98.7439
+     14.4849          112.799
+     14.9172          114.328
+     15.3496           110.54
+      15.782          104.134
+     16.2144          104.139
+     16.6468          106.687
+     17.0792          105.638
+     17.5115          101.421
+     17.9439          98.4486
+     18.3763           99.686
+     18.8087          99.3368
+     19.2411          92.1419
+     19.6735          80.8273
+     20.1058          70.6148
+     20.5382          50.1842
+     20.9706          35.5265
+      21.403          25.2173

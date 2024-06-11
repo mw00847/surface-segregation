@@ -1,0 +1,74 @@
+# This file was created Thu Feb 15 13:30:27 2024
+# Created by:
+#                  :-) GROMACS - gmx density, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/PEO/2024/75_long_25_short
+# Command line:
+#   gmx_mpi density -f extended_preNPT.xtc -s extended_preNPT.tpr -o extended.xvg
+# gmx density is part of G R O M A C S:
+#
+# Great Red Owns Many ACres of Sand 
+#
+@    title "Partial density"
+@    xaxis  label "Coordinate (nm)"
+@    yaxis  label "Density (kg m\S-3\N)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "PEO"
+    0.316832                0
+    0.950495                0
+     1.58416                0
+     2.21782                0
+     2.85148                0
+     3.48515                0
+     4.11881                0
+     4.75247                0
+     5.38614                0
+      6.0198                0
+     6.65346                0
+     7.28713                0
+     7.92079                0
+     8.55445        0.0203908
+     9.18812          12.5395
+     9.82178          160.106
+     10.4554          434.654
+     11.0891          711.518
+     11.7228          942.876
+     12.3564          1010.97
+     12.9901          1016.43
+     13.6238           1024.3
+     14.2574          1027.73
+     14.8911          1028.27
+     15.5247          1022.01
+     16.1584          1017.32
+     16.7921          1015.78
+     17.4257          1016.91
+     18.0594          1016.89
+     18.6931          1011.47
+     19.3267          1000.49
+     19.9604          937.259
+     20.5941          719.822
+     21.2277          442.418
+     21.8614           162.61
+      22.495          10.4891
+     23.1287                0
+     23.7624                0
+      24.396                0
+     25.0297                0
+     25.6634                0
+      26.297                0
+     26.9307                0
+     27.5644                0
+      28.198                0
+     28.8317                0
+     29.4653                0
+      30.099                0
+     30.7327                0
+     31.3663                0

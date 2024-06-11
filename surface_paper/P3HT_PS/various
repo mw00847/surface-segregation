@@ -1,0 +1,148 @@
+#include "martini_v3.0.0.itp"
+
+#include "PEO200.itp"
+
+[ system ]
+
+; name
+
+Melt of PEO 200
+
+ 
+
+[ molecules ]
+
+; name  number
+
+PEO 200
+
+ 
+
+ 
+
+CLBZ
+
+ 
+
+ 
+
+ 
+
+#include martini_v3.0.0_small_molecules_v1.itp
+
+[ system ]
+
+; name
+
+CLBZ solvent blend
+ 
+
+[ molecules ]
+
+; name  number
+
+CLBZ 10000
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+#generate coordinates for the CLBZ.top
+
+ 
+
+polyply gen_coords -p CLBZ.top -o CLBZ.gro -name CLBZ -dens 1100
+
+ 
+
+polyply gen_params -lib martini3 -o P3HT.itp -name P3HT -seq P3HT:301
+
+ 
+
+polyply gen_params -lib martini3 -o PS.itp -name PS -seq PS:525
+
+ 
+
+polyply gen_coords -p CLBZ_P3HT.top -o CLBZ_P3HT.gro -name CLBZ_P3HT -dens 1100
+
+polyply gen_coords -p CLBZ_P3HT_PS.top -o CLBZ_P3HT_PS.gro -name CLBZ_P3HT_PS -dens 1100
+
+ 
+
+gmx_mpi grompp -f min.mdp -c CLBZ.gro -p CLBZ.top -o CLBZ_min.tpr
+
+ 
+
+#creating interfaces
+
+ 
+
+# only the CLBZ solvent to begin with
+
+tail -1 CLBZ_production.gro;
+
+coord = $(tail -n 1 CLBZ_production.gro);
+
+#print the initial box size
+
+echo "$coord";
+
+#extend the z axis to 20nm to create the vacum interface
+
+declare -a colArray=($(echo $coord | tr ',' ' '));
+
+colArray[2]=20.00;
+
+gmx_mpi editconf -f CLBZ_production.gro -box "${colArray[@]}" -o CLBZ_extended.gro;
+
+echo interface created for CLBZ ;
+
+ 
+
+#CLBZ + P3HT
+
+tail -1 CLBZ_P3HT_production.gro;
+
+coord = $(tail -n 1 CLBZ_P3HT_production.gro);
+
+#print the initial box size
+
+echo "$coord";
+
+#extend the z axis to 20nm to create the vacum interface
+
+declare -a colArray=($(echo $coord | tr ',' ' '));
+
+colArray[2]=20.00;
+
+gmx_mpi editconf -f CLBZ_P3HT_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_extended.gro;
+
+echo interface created for CLBZ + P3HT ;
+
+ 
+
+# CLBZ + P3HT + PS
+
+tail -1 CLBZ_P3HT_PS_production.gro;
+
+coord = $(tail -n 1 CLBZ_P3HT_PS_production.gro);
+
+#print the initial box size
+
+echo "$coord";
+
+#extend the z axis to 20nm to create the vacum interface
+
+declare -a colArray=($(echo $coord | tr ',' ' '));
+
+colArray[2]=20.00;
+
+gmx_mpi editconf -f CLBZ_P3HT_PS_production.gro -box "${colArray[@]}" -o CLBZ_P3HT_PS_extended.gro;
+
+echo interface created for CLBZ + P3HT + PS  ;
+

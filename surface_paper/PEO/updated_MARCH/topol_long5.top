@@ -1,0 +1,12 @@
+#include "martini_v2.0_PEO_PS_CNP.itp"
+#include "PEO250.itp"
+#include "PEO44.itp"
+[system]
+;name
+PEO one long chain
+
+[ molecules ]
+;name number
+W 100000
+PEO44 0
+PEO250 1

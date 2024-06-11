@@ -1,0 +1,13 @@
+#include "martini_v3.0.0.itp"
+#include "martini3solvents.itp"
+#include "P3HT.itp"
+#include "PS.itp"
+[ system ]
+; name
+Melt of P3HT and PS
+ 
+[ molecules ]
+; name  number
+CLBZ 5000
+P3HT 100
+PS 100

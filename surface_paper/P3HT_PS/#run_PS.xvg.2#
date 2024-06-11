@@ -1,0 +1,26 @@
+# This file was created Fri Dec 29 17:06:17 2023
+# Created by:
+#                  :-) GROMACS - gmx density, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/P3HT_PS
+# Command line:
+#   gmx_mpi density -f CLBZ_P3HT_PS_extended_run.gro -s CLBZ_P3HT_PS_extended_run.tpr -o run_PS.xvg -sl 2
+# gmx density is part of G R O M A C S:
+#
+# Green Red Orange Magenta Azure Cyan Skyblue
+#
+@    title "Partial density"
+@    xaxis  label "Coordinate (nm)"
+@    yaxis  label "Density (kg m\S-3\N)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "PS"
+     16.5222          248.294
+     49.5666          218.771

@@ -1,0 +1,875 @@
+                      :-) GROMACS - gmx mdrun, 2020.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf      Artem Zhmurov   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2019, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2020.1
+Executable:   /opt/pkg/apps/gromacs/2020/gromacs-install/bin/gmx
+Data prefix:  /opt/pkg/apps/gromacs/2020/gromacs-install
+Working dir:  /users/mw00847/MARTINI/PS_PEO/short_PEO/equal
+Process ID:   72812
+Command line:
+  gmx mdrun -deffnm equal -v -nb gpu -ntomp 4 -ntmpi 2 -gpu_id 0
+
+GROMACS version:    2020.1
+Verified release checksum is 5cde61b9d46b24153ba84f499c996612640b965eff9a218f8f5e561f94ff4e43
+Precision:          single
+Memory model:       64 bit
+MPI library:        thread_mpi
+OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 64)
+GPU support:        CUDA
+SIMD instructions:  AVX_256
+FFT library:        fftw-3.3.8-sse2-avx-avx2-avx2_128
+RDTSCP usage:       enabled
+TNG support:        enabled
+Hwloc support:      disabled
+Tracing support:    disabled
+C compiler:         /users/pt0016/Argyrios3/gcc-6.5.0-build/bin/gcc GNU 6.5.0
+C compiler flags:   -mavx -fexcess-precision=fast -funroll-all-loops
+C++ compiler:       /users/pt0016/Argyrios3/gcc-6.5.0-build/bin/g++ GNU 6.5.0
+C++ compiler flags: -mavx -fexcess-precision=fast -funroll-all-loops -fopenmp
+CUDA compiler:      /opt/eb-pkg/ebadmin/software/CUDA/10.0.130/bin/nvcc nvcc: NVIDIA (R) Cuda compiler driver;Copyright (c) 2005-2018 NVIDIA Corporation;Built on Sat_Aug_25_21:08:01_CDT_2018;Cuda compilation tools, release 10.0, V10.0.130
+CUDA compiler flags:-std=c++14;-gencode;arch=compute_30,code=sm_30;-gencode;arch=compute_35,code=sm_35;-gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_35,code=compute_35;-gencode;arch=compute_50,code=compute_50;-gencode;arch=compute_52,code=compute_52;-gencode;arch=compute_60,code=compute_60;-gencode;arch=compute_61,code=compute_61;-gencode;arch=compute_70,code=compute_70;-gencode;arch=compute_75,code=compute_75;-use_fast_math;;-mavx -fexcess-precision=fast -funroll-all-loops -fopenmp
+CUDA driver:        10.20
+CUDA runtime:       10.0
+
+
+Running on 1 node with total 20 cores, 20 logical cores, 2 compatible GPUs
+Hardware detected:
+  CPU info:
+    Vendor: Intel
+    Brand:  Intel(R) Xeon(R) CPU E5-2670 v2 @ 2.50GHz
+    Family: 6   Model: 62   Stepping: 4
+    Features: aes apic avx clfsh cmov cx8 cx16 f16c htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
+  Hardware topology: Basic
+    Sockets, cores, and logical processors:
+      Socket  0: [   0] [   1] [   2] [   3] [   4] [   5] [   6] [   7] [   8] [   9]
+      Socket  1: [  10] [  11] [  12] [  13] [  14] [  15] [  16] [  17] [  18] [  19]
+  GPU info:
+    Number of GPUs detected: 2
+    #0: NVIDIA Tesla K20m, compute cap.: 3.5, ECC: yes, stat: compatible
+    #1: NVIDIA Tesla K20m, compute cap.: 3.5, ECC: yes, stat: compatible
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+M. J. Abraham, T. Murtola, R. Schulz, S. Páll, J. C. Smith, B. Hess, E.
+Lindahl
+GROMACS: High performance molecular simulations through multi-level
+parallelism from laptops to supercomputers
+SoftwareX 1 (2015) pp. 19-25
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Páll, M. J. Abraham, C. Kutzner, B. Hess, E. Lindahl
+Tackling Exascale Software Challenges in Molecular Dynamics Simulations with
+GROMACS
+In S. Markidis & E. Laure (Eds.), Solving Software Challenges for Exascale 8759 (2015) pp. 3-27
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Pronk, S. Páll, R. Schulz, P. Larsson, P. Bjelkmar, R. Apostolov, M. R.
+Shirts, J. C. Smith, P. M. Kasson, D. van der Spoel, B. Hess, and E. Lindahl
+GROMACS 4.5: a high-throughput and highly parallel open source molecular
+simulation toolkit
+Bioinformatics 29 (2013) pp. 845-54
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and C. Kutzner and D. van der Spoel and E. Lindahl
+GROMACS 4: Algorithms for highly efficient, load-balanced, and scalable
+molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 435-447
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+D. van der Spoel, E. Lindahl, B. Hess, G. Groenhof, A. E. Mark and H. J. C.
+Berendsen
+GROMACS: Fast, Flexible and Free
+J. Comp. Chem. 26 (2005) pp. 1701-1719
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+E. Lindahl and B. Hess and D. van der Spoel
+GROMACS 3.0: A package for molecular simulation and trajectory analysis
+J. Mol. Mod. 7 (2001) pp. 306-317
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+H. J. C. Berendsen, D. van der Spoel and R. van Drunen
+GROMACS: A message-passing parallel molecular dynamics implementation
+Comp. Phys. Comm. 91 (1995) pp. 43-56
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE CITE THE DOI FOR THIS VERSION OF GROMACS ++++
+https://doi.org/10.5281/zenodo.3685919
+-------- -------- --- Thank You --- -------- --------
+
+Input Parameters:
+   integrator                     = md
+   tinit                          = 0
+   dt                             = 0.02
+   nsteps                         = 50000
+   init-step                      = 0
+   simulation-part                = 1
+   comm-mode                      = Linear
+   nstcomm                        = 100
+   bd-fric                        = 0
+   ld-seed                        = -1779395535
+   emtol                          = 10
+   emstep                         = 0.01
+   niter                          = 20
+   fcstep                         = 0
+   nstcgsteep                     = 1000
+   nbfgscorr                      = 10
+   rtpi                           = 0.05
+   nstxout                        = 0
+   nstvout                        = 0
+   nstfout                        = 0
+   nstlog                         = 2000
+   nstcalcenergy                  = 100
+   nstenergy                      = 2000
+   nstxout-compressed             = 2000
+   compressed-x-precision         = 100
+   cutoff-scheme                  = Verlet
+   nstlist                        = 20
+   pbc                            = xyz
+   periodic-molecules             = false
+   verlet-buffer-tolerance        = 0.005
+   rlist                          = 1.2
+   coulombtype                    = Cut-off
+   coulomb-modifier               = Potential-shift
+   rcoulomb-switch                = 0
+   rcoulomb                       = 1.2
+   epsilon-r                      = 2.5
+   epsilon-rf                     = inf
+   vdw-type                       = Cut-off
+   vdw-modifier                   = Potential-shift
+   rvdw-switch                    = 0
+   rvdw                           = 1.2
+   DispCorr                       = No
+   table-extension                = 1
+   fourierspacing                 = 0.12
+   fourier-nx                     = 0
+   fourier-ny                     = 0
+   fourier-nz                     = 0
+   pme-order                      = 4
+   ewald-rtol                     = 1e-05
+   ewald-rtol-lj                  = 0.001
+   lj-pme-comb-rule               = Geometric
+   ewald-geometry                 = 0
+   epsilon-surface                = 0
+   tcoupl                         = V-rescale
+   nsttcouple                     = 20
+   nh-chain-length                = 0
+   print-nose-hoover-chain-variables = false
+   pcoupl                         = Parrinello-Rahman
+   pcoupltype                     = Isotropic
+   nstpcouple                     = 20
+   tau-p                          = 16
+   compressibility (3x3):
+      compressibility[    0]={ 6.00000e-04,  0.00000e+00,  0.00000e+00}
+      compressibility[    1]={ 0.00000e+00,  6.00000e-04,  0.00000e+00}
+      compressibility[    2]={ 0.00000e+00,  0.00000e+00,  6.00000e-04}
+   ref-p (3x3):
+      ref-p[    0]={ 1.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    1]={ 0.00000e+00,  1.00000e+00,  0.00000e+00}
+      ref-p[    2]={ 0.00000e+00,  0.00000e+00,  1.00000e+00}
+   refcoord-scaling               = No
+   posres-com (3):
+      posres-com[0]= 0.00000e+00
+      posres-com[1]= 0.00000e+00
+      posres-com[2]= 0.00000e+00
+   posres-comB (3):
+      posres-comB[0]= 0.00000e+00
+      posres-comB[1]= 0.00000e+00
+      posres-comB[2]= 0.00000e+00
+   QMMM                           = false
+   QMconstraints                  = 0
+   QMMMscheme                     = 0
+   MMChargeScaleFactor            = 1
+qm-opts:
+   ngQM                           = 0
+   constraint-algorithm           = Lincs
+   continuation                   = false
+   Shake-SOR                      = false
+   shake-tol                      = 0.0001
+   lincs-order                    = 4
+   lincs-iter                     = 1
+   lincs-warnangle                = 30
+   nwall                          = 0
+   wall-type                      = 9-3
+   wall-r-linpot                  = -1
+   wall-atomtype[0]               = -1
+   wall-atomtype[1]               = -1
+   wall-density[0]                = 0
+   wall-density[1]                = 0
+   wall-ewald-zfac                = 3
+   pull                           = false
+   awh                            = false
+   rotation                       = false
+   interactiveMD                  = false
+   disre                          = No
+   disre-weighting                = Conservative
+   disre-mixed                    = false
+   dr-fc                          = 1000
+   dr-tau                         = 0
+   nstdisreout                    = 100
+   orire-fc                       = 0
+   orire-tau                      = 0
+   nstorireout                    = 100
+   free-energy                    = no
+   cos-acceleration               = 0
+   deform (3x3):
+      deform[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   simulated-tempering            = false
+   swapcoords                     = no
+   userint1                       = 0
+   userint2                       = 0
+   userint3                       = 0
+   userint4                       = 0
+   userreal1                      = 0
+   userreal2                      = 0
+   userreal3                      = 0
+   userreal4                      = 0
+   applied-forces:
+     electric-field:
+       x:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+       y:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+       z:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+     density-guided-simulation:
+       active                     = false
+       group                      = protein
+       similarity-measure         = inner-product
+       atom-spreading-weight      = unity
+       force-constant             = 1e+09
+       gaussian-transform-spreading-width = 0.2
+       gaussian-transform-spreading-range-in-multiples-of-width = 4
+       reference-density-filename = reference.mrc
+       nst                        = 1
+       normalize-densities        = true
+       adaptive-force-scaling     = false
+       adaptive-force-scaling-time-constant = 4
+grpopts:
+   nrdf:      238197
+   ref-t:         300
+   tau-t:           2
+annealing:          No
+annealing-npoints:           0
+   acc:	           0           0           0
+   nfreeze:           N           N           N
+   energygrp-flags[  0]: 0
+
+Changing nstlist from 20 to 50, rlist from 1.2 to 1.34
+
+
+Initializing Domain Decomposition on 2 ranks
+Dynamic load balancing: locked
+Using update groups, nr 54400, average size 1.9 atoms, max. radius 0.290 nm
+Minimum cell size due to atom displacement: 1.625 nm
+Initial maximum distances in bonded interactions:
+    two-body bonded interactions: 0.371 nm, Bond, atoms 101660 101661
+  multi-body bonded interactions: 1.038 nm, CBT Dih., atoms 102919 102922
+Minimum cell size due to bonded interactions: 1.142 nm
+Scaling the initial minimum size with 1/0.8 (option -dds) = 1.25
+Optimizing the DD grid for 2 cells with a minimum initial size of 2.031 nm
+The maximum allowed number of cells is: X 9 Y 9 Z 9
+Domain decomposition grid 2 x 1 x 1, separate PME ranks 0
+Domain decomposition rank 0, coordinates 0 0 0
+
+The initial number of communication pulses is: X 1
+The initial domain decomposition cell size is: X 9.61 nm
+
+The maximum allowed distance for atom groups involved in interactions is:
+                 non-bonded interactions           1.920 nm
+(the following are initial values, they could change due to box deformation)
+            two-body bonded interactions  (-rdd)   1.920 nm
+          multi-body bonded interactions  (-rdd)   1.920 nm
+
+When dynamic load balancing gets turned on, these settings will change to:
+The maximum number of communication pulses is: X 1
+The minimum size for domain decomposition cells is 1.920 nm
+The requested allowed shrink of DD cells (option -dds) is: 0.80
+The allowed shrink of domain decomposition cells is: X 0.20
+The maximum allowed distance for atom groups involved in interactions is:
+                 non-bonded interactions           1.920 nm
+            two-body bonded interactions  (-rdd)   1.920 nm
+          multi-body bonded interactions  (-rdd)   1.920 nm
+
+On host node122.swmgmt.eureka 1 GPU selected for this run.
+Mapping of GPU IDs to the 2 GPU tasks in the 2 ranks on this node:
+  PP:0,PP:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
+Using 2 MPI threads
+Using 4 OpenMP threads per tMPI thread
+
+
+NOTE: The number of threads is not equal to the number of (logical) cores
+      and the -pin option is set to auto: will not pin threads to cores.
+      This can lead to significant performance degradation.
+      Consider using -pin on (and -pinoffset in case you run multiple jobs).
+System total charge: 0.000
+Potential shift: LJ r^-12: -1.122e-01 r^-6: -3.349e-01, Coulomb -8e-01
+
+Using GPU 8x8 nonbonded short-range kernels
+
+Using a dual 8x8 pair-list setup updated with dynamic, rolling pruning:
+  outer list: updated every 50 steps, buffer 0.140 nm, rlist 1.340 nm
+  inner list: updated every 28 steps, buffer 0.009 nm, rlist 1.209 nm
+At tolerance 0.005 kJ/mol/ps per atom, equivalent classical 1x1 list would be:
+  outer list: updated every 50 steps, buffer 0.461 nm, rlist 1.661 nm
+  inner list: updated every 28 steps, buffer 0.207 nm, rlist 1.407 nm
+
+Using full Lennard-Jones parameter combination matrix
+
+Removing pbc first time
+
+Initializing LINear Constraint Solver
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess
+P-LINCS: A Parallel Linear Constraint Solver for molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 116-122
+-------- -------- --- Thank You --- -------- --------
+
+The number of constraints is 75000
+75000 constraints are involved in constraint triangles,
+will apply an additional matrix expansion of order 4 for couplings
+between constraints inside triangles
+
+Linking all bonded interactions to atoms
+
+
+Intra-simulation communication will occur every 10 steps.
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+G. Bussi, D. Donadio and M. Parrinello
+Canonical sampling through velocity rescaling
+J. Chem. Phys. 126 (2007) pp. 014101
+-------- -------- --- Thank You --- -------- --------
+
+There are: 104400 Atoms
+Atom distribution over 2 domains: av 52200 stddev 2402 min 49798 max 54602
+
+Constraining the starting coordinates (step 0)
+
+Constraining the coordinates at t0-dt (step 0)
+Center of mass motion removal mode is Linear
+We have the following groups for center of mass motion removal:
+  0:  rest
+RMS relative constraint deviation after constraining: 1.67e-06
+Initial temperature: 6.66268e-06 K
+
+Started mdrun on rank 0 Sat Dec 25 06:09:07 2021
+
+           Step           Time
+              0        0.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    1.39172e+04    1.42596e+05    3.11095e+03    3.45395e+03   -7.16528e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.53450e+05    2.43155e+02   -5.53207e+05   -5.52780e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.45552e-01   -1.39524e+02    2.29259e-06
+
+
+DD  step 49 load imb.: force  2.2%
+
+Step 81  Warning: Pressure scaling more than 1%. This may mean your system
+ is not yet equilibrated. Use of Parrinello-Rahman pressure coupling during
+equilibration can lead to simulation instability, and is discouraged.
+
+Step 101  Warning: Pressure scaling more than 1%. This may mean your system
+ is not yet equilibrated. Use of Parrinello-Rahman pressure coupling during
+equilibration can lead to simulation instability, and is discouraged.
+
+Step 121  Warning: Pressure scaling more than 1%. This may mean your system
+ is not yet equilibrated. Use of Parrinello-Rahman pressure coupling during
+equilibration can lead to simulation instability, and is discouraged.
+
+Step 141  Warning: Pressure scaling more than 1%. This may mean your system
+ is not yet equilibrated. Use of Parrinello-Rahman pressure coupling during
+equilibration can lead to simulation instability, and is discouraged.
+
+Step 161  Warning: Pressure scaling more than 1%. This may mean your system
+ is not yet equilibrated. Use of Parrinello-Rahman pressure coupling during
+equilibration can lead to simulation instability, and is discouraged.
+
+Step 181  Warning: Pressure scaling more than 1%. This may mean your system
+ is not yet equilibrated. Use of Parrinello-Rahman pressure coupling during
+equilibration can lead to simulation instability, and is discouraged.
+
+DD  step 1999 load imb.: force  0.6%
+           Step           Time
+           2000       40.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.94112e+04    2.03103e+05    6.23219e+03    3.96228e+03   -7.55988e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -4.73279e+05    2.99229e+05   -1.74050e+05   -4.74767e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.02179e+02    4.05369e+01    4.79161e-06
+
+
+DD  step 3999 load imb.: force  0.8%
+           Step           Time
+           4000       80.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.84987e+04    1.98051e+05    5.83558e+03    3.90936e+03   -7.74506e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -4.98210e+05    2.96788e+05   -2.01422e+05   -4.76671e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99713e+02   -8.26883e+00    4.71911e-06
+
+
+DD  step 5999 load imb.: force  0.2%
+           Step           Time
+           6000      120.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.73192e+04    1.96040e+05    6.02612e+03    3.87872e+03   -7.83317e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.10054e+05    2.98217e+05   -2.11837e+05   -4.78513e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.01156e+02    3.12791e+00    4.70595e-06
+
+
+DD  step 7999 load imb.: force  1.3%
+           Step           Time
+           8000      160.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.77278e+04    1.94306e+05    6.00363e+03    3.84837e+03   -7.90421e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.18536e+05    2.98333e+05   -2.20203e+05   -4.80645e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.01273e+02    4.93774e+01    4.72789e-06
+
+
+DD  step 9999 load imb.: force  1.0%
+           Step           Time
+          10000      200.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.63831e+04    1.92566e+05    5.81096e+03    3.76922e+03   -7.95343e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.26814e+05    2.96799e+05   -2.30015e+05   -4.82500e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99724e+02    2.67718e+00    4.72116e-06
+
+
+DD  step 11999 load imb.: force  0.8%
+           Step           Time
+          12000      240.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.74205e+04    1.90976e+05    5.99801e+03    3.87322e+03   -7.97429e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.29161e+05    2.95903e+05   -2.33258e+05   -4.84399e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.98819e+02   -6.09483e+01    4.72837e-06
+
+
+DD  step 13999 load imb.: force  1.2%
+           Step           Time
+          14000      280.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.72785e+04    1.91965e+05    5.76663e+03    3.88640e+03   -8.00205e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.31308e+05    2.97034e+05   -2.34274e+05   -4.86226e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99962e+02   -5.13874e+00    4.66084e-06
+
+
+DD  step 15999 load imb.: force  1.3%
+           Step           Time
+          16000      320.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.68245e+04    1.92020e+05    5.67722e+03    3.80771e+03   -8.03858e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.35529e+05    2.96259e+05   -2.39270e+05   -4.88361e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99179e+02   -2.60808e+01    4.57846e-06
+
+
+DD  step 17999 load imb.: force  1.3%
+           Step           Time
+          18000      360.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.71897e+04    1.90817e+05    5.78712e+03    3.80560e+03   -8.06349e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.38750e+05    2.97156e+05   -2.41594e+05   -4.90296e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.00085e+02   -2.43740e+01    4.67253e-06
+
+
+DD  step 19999 load imb.: force  1.3%
+           Step           Time
+          20000      400.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.63691e+04    1.89530e+05    5.65944e+03    3.84547e+03   -8.05355e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.39950e+05    2.96847e+05   -2.43103e+05   -4.91897e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99773e+02   -2.54414e+01    4.76279e-06
+
+
+DD  step 21999 load imb.: force  0.8%
+           Step           Time
+          22000      440.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.65790e+04    1.89992e+05    5.88502e+03    3.89721e+03   -8.07571e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.41217e+05    2.97530e+05   -2.43688e+05   -4.94016e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.00462e+02    2.08713e+01    4.80823e-06
+
+
+DD  step 23999 load imb.: force  1.3%
+           Step           Time
+          24000      480.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.66614e+04    1.88332e+05    5.79182e+03    3.81117e+03   -8.07681e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.43084e+05    2.94815e+05   -2.48269e+05   -4.95981e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.97721e+02    1.63521e+01    4.70249e-06
+
+
+DD  step 25999 load imb.: force  1.3%
+           Step           Time
+          26000      520.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.71029e+04    1.89785e+05    5.90934e+03    3.88990e+03   -8.12282e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.45595e+05    2.96832e+05   -2.48764e+05   -4.97465e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99757e+02    8.07933e+01    4.72171e-06
+
+
+DD  step 27999 load imb.: force  1.3%
+           Step           Time
+          28000      560.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.59651e+04    1.87630e+05    5.74048e+03    3.79487e+03   -8.07438e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.44308e+05    2.96703e+05   -2.47605e+05   -4.99352e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99627e+02   -6.05407e+01    4.68946e-06
+
+
+DD  step 29999 load imb.: force  1.2%
+           Step           Time
+          30000      600.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.67507e+04    1.89328e+05    5.83343e+03    3.75416e+03   -8.12944e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.47278e+05    2.96758e+05   -2.50520e+05   -5.00982e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99683e+02    6.88316e+01    4.70784e-06
+
+
+DD  step 31999 load imb.: force  0.8%
+           Step           Time
+          32000      640.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.68712e+04    1.88363e+05    5.74109e+03    3.83872e+03   -8.12521e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.47707e+05    2.97193e+05   -2.50514e+05   -5.03114e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.00122e+02    6.38327e+00    4.68972e-06
+
+
+DD  step 33999 load imb.: force  1.2%
+           Step           Time
+          34000      680.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.70669e+04    1.86826e+05    5.80392e+03    3.80058e+03   -8.12224e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.48727e+05    2.96582e+05   -2.52145e+05   -5.05191e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99505e+02    1.37504e+01    4.67752e-06
+
+
+DD  step 35999 load imb.: force  1.3%
+           Step           Time
+          36000      720.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.67869e+04    1.86430e+05    5.56597e+03    3.84051e+03   -8.13279e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.50656e+05    2.97484e+05   -2.53172e+05   -5.07248e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.00416e+02   -8.25989e+01    4.78943e-06
+
+
+DD  step 37999 load imb.: force  1.4%
+           Step           Time
+          38000      760.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.63796e+04    1.87177e+05    5.91450e+03    3.73509e+03   -8.15186e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.51980e+05    2.97368e+05   -2.54612e+05   -5.09305e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.00299e+02   -3.27538e+00    4.73373e-06
+
+
+DD  step 39999 load imb.: force  1.3%
+           Step           Time
+          40000      800.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.60675e+04    1.87789e+05    6.00424e+03    3.79848e+03   -8.13769e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.50109e+05    2.96669e+05   -2.53440e+05   -5.11052e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99593e+02   -1.47400e+01    4.68430e-06
+
+
+DD  step 41999 load imb.: force  0.8%
+           Step           Time
+          42000      840.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.58897e+04    1.87227e+05    5.66240e+03    3.83632e+03   -8.15430e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.52814e+05    2.96799e+05   -2.56015e+05   -5.13200e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99724e+02   -4.18572e+01    4.67544e-06
+
+
+DD  step 43999 load imb.: force  1.5%
+           Step           Time
+          44000      880.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.65910e+04    1.87001e+05    5.81480e+03    3.78927e+03   -8.16420e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.53224e+05    2.97685e+05   -2.55539e+05   -5.14842e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.00619e+02    1.57516e+01    4.80232e-06
+
+
+DD  step 45999 load imb.: force  1.4%
+           Step           Time
+          46000      920.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.59922e+04    1.87251e+05    5.64785e+03    3.67880e+03   -8.14969e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.52399e+05    2.96022e+05   -2.56377e+05   -5.16398e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.98940e+02    1.82491e+01    4.75356e-06
+
+
+DD  step 47999 load imb.: force  0.7%
+           Step           Time
+          48000      960.00000
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.72775e+04    1.86509e+05    5.64465e+03    3.92361e+03   -8.17721e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.54367e+05    2.97406e+05   -2.56960e+05   -5.18550e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.00338e+02    3.66060e+00    4.65819e-06
+
+
+DD  step 49999 load imb.: force  1.4%
+           Step           Time
+          50000     1000.00000
+
+Writing checkpoint, step 50000 at Sat Dec 25 06:12:19 2021
+
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.67239e+04    1.86964e+05    5.78502e+03    3.83198e+03   -8.17149e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.53844e+05    2.97214e+05   -2.56631e+05   -5.20524e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    3.00143e+02    1.38416e+00    4.82919e-06
+
+
+	<======  ###############  ==>
+	<====  A V E R A G E S  ====>
+	<==  ###############  ======>
+
+	Statistics over 50001 steps using 501 frames
+
+   Energies (kJ/mol)
+           Bond          Angle       G96Angle       CBT Dih.        LJ (SR)
+    6.68015e+04    1.90706e+05    5.82329e+03    3.81830e+03   -8.01861e+05
+   Coulomb (SR)      Potential    Kinetic En.   Total Energy  Conserved En.
+    0.00000e+00   -5.34712e+05    2.96328e+05   -2.38385e+05   -4.97067e+05
+    Temperature Pressure (bar)   Constr. rmsd
+    2.99248e+02    1.94164e+00    0.00000e+00
+
+          Box-X          Box-Y          Box-Z
+    1.55721e+01    1.55721e+01    1.55721e+01
+
+   Total Virial (kJ/mol)
+    9.81777e+04    4.50841e+02    5.48520e+02
+    4.50831e+02    9.84741e+04    4.72885e+01
+    5.48513e+02    4.72879e+01    9.90937e+04
+
+   Pressure (bar)
+    5.50949e+00   -3.50957e+00   -3.13530e+00
+   -3.50949e+00    3.38902e+00   -2.88541e-01
+   -3.13524e+00   -2.88537e-01   -3.07359e+00
+
+
+	M E G A - F L O P S   A C C O U N T I N G
+
+ NB=Group-cutoff nonbonded kernels    NxN=N-by-N cluster Verlet kernels
+ RF=Reaction-Field  VdW=Van der Waals  QSTab=quadratic-spline table
+ W3=SPC/TIP3p  W4=TIP4p (single or pairs)
+ V&F=Potential and force  V=Potential only  F=Force only
+
+ Computing:                               M-Number         M-Flops  % Flops
+-----------------------------------------------------------------------------
+ Pair Search distance check            7164.536944       64480.832     0.1
+ NxN RF Elec. + LJ [F]              2888408.956352   109759540.341    96.7
+ NxN RF Elec. + LJ [V&F]              29229.217920     1578377.768     1.4
+ Reset In Box                           104.504400         313.513     0.0
+ CG-CoM                                 104.608800         313.826     0.0
+ Bonds                                 2710.054200      159893.198     0.1
+ Angles                                7690.153800     1291945.838     1.1
+ RB-Dihedrals                           205.004100       50636.013     0.0
+ Virial                                 261.329490        4703.931     0.0
+ Stop-CM                                 52.408800         524.088     0.0
+ Calc-Ekin                             1044.208800       28193.638     0.0
+ Lincs                                 3750.225000      225013.500     0.2
+ Lincs-Mat                            75004.500000      300018.000     0.3
+ Constraint-V                          7500.300000       60002.400     0.1
+ Constraint-Vir                         187.575000        4501.800     0.0
+-----------------------------------------------------------------------------
+ Total                                               113528458.686   100.0
+-----------------------------------------------------------------------------
+
+
+    D O M A I N   D E C O M P O S I T I O N   S T A T I S T I C S
+
+ av. #atoms communicated per step for force:  2 x 21853.2
+
+
+Dynamic load balancing report:
+ DLB was off during the run due to low measured imbalance.
+ Average load imbalance: 1.0%.
+ The balanceable part of the MD step is 83%, load imbalance is computed from this.
+ Part of the total run time spent waiting due to load imbalance: 0.9%.
+
+
+     R E A L   C Y C L E   A N D   T I M E   A C C O U N T I N G
+
+On 2 MPI ranks, each using 4 OpenMP threads
+
+ Computing:          Num   Num      Call    Wall time         Giga-Cycles
+                     Ranks Threads  Count      (s)         total sum    %
+-----------------------------------------------------------------------------
+ Domain decomp.         2    4       1001      10.533        210.656   5.5
+ DD comm. load          2    4        501       0.279          5.570   0.1
+ Neighbor search        2    4       1001       7.777        155.539   4.0
+ Launch GPU ops.        2    4     100002       6.671        133.415   3.5
+ Comm. coord.           2    4      49000      22.838        456.750  11.9
+ Force                  2    4      50001      49.379        987.577  25.7
+ Wait + Comm. F         2    4      50001       3.627         72.539   1.9
+ Wait GPU NB nonloc.    2    4      50001       0.385          7.697   0.2
+ Wait GPU NB local      2    4      50001      24.684        493.673  12.8
+ NB X/F buffer ops.     2    4     198002       4.634         92.677   2.4
+ Write traj.            2    4         26       0.287          5.745   0.1
+ Update                 2    4      50001       3.373         67.458   1.8
+ Constraints            2    4      50003      53.983       1079.656  28.1
+ Comm. energies         2    4       5001       1.437         28.737   0.7
+ Rest                                           2.316         46.320   1.2
+-----------------------------------------------------------------------------
+ Total                                        192.202       3844.011 100.0
+-----------------------------------------------------------------------------
+
+               Core t (s)   Wall t (s)        (%)
+       Time:     1537.584      192.202      800.0
+                 (ns/day)    (hour/ns)
+Performance:      449.536        0.053
+Finished mdrun on rank 0 Sat Dec 25 06:12:19 2021
+

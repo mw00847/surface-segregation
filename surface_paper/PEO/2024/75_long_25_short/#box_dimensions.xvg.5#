@@ -1,0 +1,30 @@
+# This file was created Tue Feb 27 12:59:15 2024
+# Created by:
+#                  :-) GROMACS - gmx energy, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/PEO/2024/75_long_25_short
+# Command line:
+#   gmx_mpi energy -f blend_extend_preNPT.edr -b 0 -e 500 -o box_dimensions.xvg
+# gmx energy is part of G R O M A C S:
+#
+# Getting the Right Output Means no Artefacts in Calculating Stuff
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(nm)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Box-Z"
+    0.000000   31.261440
+  100.000000   30.558254
+  200.000000   29.880934
+  300.000000   29.221315
+  400.000000   28.652597
+  500.000000   28.076799

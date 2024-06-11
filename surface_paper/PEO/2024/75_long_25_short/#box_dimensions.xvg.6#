@@ -1,0 +1,30 @@
+# This file was created Tue Feb 27 13:57:44 2024
+# Created by:
+#                  :-) GROMACS - gmx energy, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/PEO/2024/75_long_25_short
+# Command line:
+#   gmx_mpi energy -f blend_extend_preNPT.edr -b 0 -e 500 -o box_dimensions.xvg
+# gmx energy is part of G R O M A C S:
+#
+# GRoups of Organic Molecules in ACtion for Science
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kg/m^3)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Density"
+    0.000000  337.676453
+  100.000000  361.528137
+  200.000000  386.674286
+  300.000000  413.455200
+  400.000000  438.566833
+  500.000000  466.106262

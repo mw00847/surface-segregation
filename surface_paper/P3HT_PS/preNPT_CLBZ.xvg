@@ -1,0 +1,74 @@
+# This file was created Tue Dec 19 12:52:32 2023
+# Created by:
+#                  :-) GROMACS - gmx density, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/P3HT_PS
+# Command line:
+#   gmx_mpi density -f CLBZ_P3HT_PS_extended_preNPT.gro -s CLBZ_P3HT_PS_extended_preNPT.tpr -o preNPT_CLBZ.xvg
+# gmx density is part of G R O M A C S:
+#
+# Gromacs Runs On Most of All Computer Systems
+#
+@    title "Partial density"
+@    xaxis  label "Coordinate (nm)"
+@    yaxis  label "Density (kg m\S-3\N)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "CLBZ"
+    0.660381         0.735651
+     1.98114         0.312094
+     3.30191         0.913991
+     4.62267         0.646481
+     5.94343         0.356679
+     7.26419         0.200632
+     8.58496         0.423557
+     9.90572         0.312094
+     11.2265         0.378972
+     12.5472         0.245217
+      13.868         0.512727
+     15.1888         0.222925
+     16.5095         0.980868
+     17.8303         0.312094
+     19.1511         0.468142
+     20.4718         0.847114
+     21.7926         0.401264
+     23.1133         0.891699
+     24.4341          4.01264
+     25.7549          41.0404
+     27.0756          64.3806
+     28.3964          66.1194
+     29.7172          69.8646
+     31.0379          69.9983
+     32.3587          71.8263
+     33.6795          68.9952
+     35.0002          72.2276
+      36.321          68.1258
+     37.6417          56.3331
+     38.9625          62.3966
+     40.2833          40.8621
+      41.604          6.15272
+     42.9248         0.156047
+     44.2456         0.312094
+     45.5663         0.156047
+     46.8871         0.468142
+     48.2078         0.312094
+     49.5286         0.624189
+     50.8494         0.312094
+     52.1701         0.423557
+     53.4909         0.936283
+     54.8117         0.468142
+     56.1324         0.512727
+     57.4532         0.512727
+     58.7739          0.26751
+     60.0947          1.24838
+     61.4155         0.423557
+     62.7362         0.401264
+      64.057         0.891699
+     65.3778         0.312094

@@ -1,0 +1,130 @@
+                      :-) GROMACS - gmx grompp, 2020.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf      Artem Zhmurov   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2019, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2020.1
+Executable:   /opt/pkg/apps/gromacs/2020/gromacs-install/bin/gmx
+Data prefix:  /opt/pkg/apps/gromacs/2020/gromacs-install
+Working dir:  /users/mw00847/MARTINI/PS_PEO/short_PEO/PS_excess
+Command line:
+  gmx grompp -f production.mdp -c tension.gro -p topol_PS_excess.top -o tension.tpr
+
+Ignoring obsolete mdp entry 'title'
+Ignoring obsolete mdp entry 'ns_type'
+Setting the LD random seed to -1228111782
+Generated 844 of the 356590 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'PS'
+Excluding 1 bonded neighbours molecule type 'PEO'
+Number of degrees of freedom in T-Coupling group System is 397047.00
+
+NOTE 1 [file production.mdp]:
+  This run will generate roughly 4233 Mb of data
+
+
+There was 1 note
+
+Back Off! I just backed up tension.tpr to ./#tension.tpr.1#
+
+GROMACS reminds you: "You Crashed Into the Swamps" (Silicon Graphics)
+
+                      :-) GROMACS - gmx mdrun, 2020.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf      Artem Zhmurov   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2019, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2020.1
+Executable:   /opt/pkg/apps/gromacs/2020/gromacs-install/bin/gmx
+Data prefix:  /opt/pkg/apps/gromacs/2020/gromacs-install
+Working dir:  /users/mw00847/MARTINI/PS_PEO/short_PEO/PS_excess
+Command line:
+  gmx mdrun -deffnm tension -v -nb gpu -ntomp 4 -ntmpi 2 -gpu_id 0
+
+
+Back Off! I just backed up tension.log to ./#tension.log.1#
+Reading file tension.tpr, VERSION 2020.1 (single precision)
+Changing nstlist from 20 to 50, rlist from 1.2 to 1.353
+
+On host node123.swmgmt.eureka 1 GPU selected for this run.
+Mapping of GPU IDs to the 2 GPU tasks in the 2 ranks on this node:
+  PP:0,PP:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
+Using 2 MPI threads
+Using 4 OpenMP threads per tMPI thread
+
+
+NOTE: The number of threads is not equal to the number of (logical) cores
+      and the -pin option is set to auto: will not pin threads to cores.
+      This can lead to significant performance degradation.
+      Consider using -pin on (and -pinoffset in case you run multiple jobs).
+
+Back Off! I just backed up tension.edr to ./#tension.edr.1#
+
+WARNING: This run will generate roughly 4222 Mb of data
+
+starting mdrun 'blend'
+10000000 steps, 200000.0 ps.
+
+-------------------------------------------------------
+Program:     gmx mdrun, version 2020.1
+Source file: src/gromacs/mdlib/sim_util.cpp (line 465)
+MPI rank:    0 (out of 2)
+
+Fatal error:
+Step 0: The total potential energy is 2.81129e+18, which is extremely high.
+The LJ and electrostatic contributions to the energy are 2.81129e+18 and 0,
+respectively. A very high potential energy can be caused by overlapping
+interactions in bonded interactions or very large coordinate values. Usually
+this is caused by a badly- or non-equilibrated initial configuration,
+incorrect interactions or parameters in the topology.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------

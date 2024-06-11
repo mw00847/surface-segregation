@@ -1,0 +1,74 @@
+# This file was created Thu Feb 15 17:13:23 2024
+# Created by:
+#                  :-) GROMACS - gmx density, 2021-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx_mpi
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/mat/gromacs/MARTINI/surface_paper/PEO/2024/75_long_25_short
+# Command line:
+#   gmx_mpi density -f extended_preNPT.xtc -s extended_preNPT.tpr -o extended.xvg
+# gmx density is part of G R O M A C S:
+#
+# Georgetown Riga Oslo Madrid Amsterdam Chisinau Stockholm
+#
+@    title "Partial density"
+@    xaxis  label "Coordinate (nm)"
+@    yaxis  label "Density (kg m\S-3\N)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "PEO200"
+    0.316121                0
+    0.948364                0
+     1.58061                0
+     2.21285                0
+     2.84509                0
+     3.47734                0
+     4.10958                0
+     4.74182                0
+     5.37406                0
+     6.00631                0
+     6.63855                0
+     7.27079                0
+     7.90304                0
+     8.53528                0
+     9.16752          3.69408
+     9.79977          84.4663
+      10.432          257.962
+     11.0643          413.604
+     11.6965          543.855
+     12.3287          587.422
+      12.961          592.373
+     13.5932          578.909
+     14.2255          573.177
+     14.8577          560.352
+       15.49          534.053
+     16.1222           513.07
+     16.7544          511.465
+     17.3867          532.389
+     18.0189           544.59
+     18.6512          523.041
+     19.2834          526.877
+     19.9157          479.576
+     20.5479          344.281
+     21.1801          205.515
+     21.8124           67.281
+     22.4446          3.00661
+     23.0769                0
+     23.7091                0
+     24.3414                0
+     24.9736                0
+     25.6058                0
+     26.2381                0
+     26.8703                0
+     27.5026                0
+     28.1348                0
+     28.7671                0
+     29.3993                0
+     30.0315                0
+     30.6638                0
+      31.296                0

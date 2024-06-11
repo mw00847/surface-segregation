@@ -1,0 +1,12 @@
+#include "martini_v3.0.0.itp"
+#include "PS100.itp"
+#include "PEO100.itp"
+[ system ]
+;name
+blend 
+
+[ molecules ]
+;name number
+PS 25
+PEO 175
+

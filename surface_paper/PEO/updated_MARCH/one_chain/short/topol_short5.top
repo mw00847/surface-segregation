@@ -1,0 +1,11 @@
+#include "martini_v3.0.0.itp"
+#include "PEO44.itp"
+#include "martini_v3.0.0_solvents_v1.itp"
+[ system ]
+;name
+blend
+
+[ molecules ]
+;name number
+PEO44 1
+W 100000

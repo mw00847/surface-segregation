@@ -1,0 +1,130 @@
+                      :-) GROMACS - gmx grompp, 2020.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf      Artem Zhmurov   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2019, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx grompp, version 2020.1
+Executable:   /opt/pkg/apps/gromacs/2020/gromacs-install/bin/gmx
+Data prefix:  /opt/pkg/apps/gromacs/2020/gromacs-install
+Working dir:  /users/mw00847/MARTINI/PS_PEO/short_PEO/PS_excess
+Command line:
+  gmx grompp -f em.mdp -c tension.gro -p topol_PS_excess.top -o tension.tpr
+
+Ignoring obsolete mdp entry 'ns_type'
+
+NOTE 1 [file em.mdp]:
+  With Verlet lists the optimal nstlist is >= 10, with GPUs >= 20. Note
+  that with the Verlet scheme, nstlist has no effect on the accuracy of
+  your simulation.
+
+Setting the LD random seed to -432846815
+Generated 844 of the 356590 non-bonded parameter combinations
+Excluding 3 bonded neighbours molecule type 'PS'
+Excluding 1 bonded neighbours molecule type 'PEO'
+Number of degrees of freedom in T-Coupling group rest is 528297.00
+
+NOTE 2 [file em.mdp]:
+  This run will generate roughly 12872334 Mb of data
+
+
+There were 2 notes
+
+GROMACS reminds you: "BioBeat is Not Available In Regular Shops" (P.J. Meulenhoff)
+
+                      :-) GROMACS - gmx mdrun, 2020.1 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
+    Par Bjelkmar      Christian Blau   Viacheslav Bolnykh     Kevin Boyd    
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra       Alan Gray     
+  Gerrit Groenhof     Anca Hamuraru    Vincent Hindriksen  M. Eric Irrgang  
+  Aleksei Iupinov   Christoph Junghans     Joe Jordan     Dimitrios Karkoulis
+    Peter Kasson        Jiri Kraus      Carsten Kutzner      Per Larsson    
+  Justin A. Lemkul    Viveca Lindahl    Magnus Lundborg     Erik Marklund   
+    Pascal Merz     Pieter Meulenhoff    Teemu Murtola       Szilard Pall   
+    Sander Pronk      Roland Schulz      Michael Shirts    Alexey Shvetsov  
+   Alfons Sijbers     Peter Tieleman      Jon Vincent      Teemu Virolainen 
+ Christian Wennberg    Maarten Wolf      Artem Zhmurov   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2019, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, version 2020.1
+Executable:   /opt/pkg/apps/gromacs/2020/gromacs-install/bin/gmx
+Data prefix:  /opt/pkg/apps/gromacs/2020/gromacs-install
+Working dir:  /users/mw00847/MARTINI/PS_PEO/short_PEO/PS_excess
+Command line:
+  gmx mdrun -deffnm tension -v -nb gpu -ntomp 4 -ntmpi 2 -gpu_id 0
+
+Reading file tension.tpr, VERSION 2020.1 (single precision)
+On host node122.swmgmt.eureka 1 GPU selected for this run.
+Mapping of GPU IDs to the 2 GPU tasks in the 2 ranks on this node:
+  PP:0,PP:0
+PP tasks will do (non-perturbed) short-ranged interactions on the GPU
+PP task will update and constrain coordinates on the CPU
+Using 2 MPI threads
+Using 4 OpenMP threads per tMPI thread
+
+
+NOTE: The number of threads is not equal to the number of (logical) cores
+      and the -pin option is set to auto: will not pin threads to cores.
+      This can lead to significant performance degradation.
+      Consider using -pin on (and -pinoffset in case you run multiple jobs).
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+02
+   Number of steps    =    200000000
+Step=    0, Dmax= 1.0e-02 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960
+Step=    1, Dmax= 1.0e-02 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=    2, Dmax= 5.0e-03 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=    3, Dmax= 2.5e-03 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=    4, Dmax= 1.2e-03 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=    5, Dmax= 6.2e-04 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=    6, Dmax= 3.1e-04 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=    7, Dmax= 1.6e-04 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=    8, Dmax= 7.8e-05 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=    9, Dmax= 3.9e-05 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=   10, Dmax= 2.0e-05 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=   11, Dmax= 9.8e-06 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=   12, Dmax= 4.9e-06 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=   13, Dmax= 2.4e-06 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960Step=   14, Dmax= 1.2e-06 nm, Epot=  3.07958e+18 Fmax=         inf, atom= 4960
+Energy minimization has stopped because the force on at least one atom is not
+finite. This usually means atoms are overlapping. Modify the input
+coordinates to remove atom overlap or use soft-core potentials with the free
+energy code to avoid infinite forces.
+You could also be lucky that switching to double precision is sufficient to
+obtain finite forces.
+
+writing lowest energy coordinates.
+
+Back Off! I just backed up tension.gro to ./#tension.gro.1#
+
+Steepest Descents converged to machine precision in 15 steps,
+but did not reach the requested Fmax < 100.
+Potential Energy  =  3.0795839e+18
+Maximum force     =            inf on atom 4960
+Norm of force     =            inf
+
+GROMACS reminds you: "The Lord of the Rings can be confusing to follow because many of the bad minions look and sound familiar; that's why Tolkien gave them each an ORCid." (Caroline Bartman)
+

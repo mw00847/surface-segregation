@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu
+#SBATCH --job-name="PEO_excess"
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=20
+#SBATCH --mem=200G
+#SBATCH --time=64:00:00
+#SBATCH -o slurm.%N.%j.out
+#SBATCH -e slurm.%N.%j.err
+#SBATCH --exclusive
+
+
+cd $SLURM_SUBMIT_DIR
+
+export CUDA_VISIBLE_DEVICES=0,1
+
+
+module load gromacs/2020-GPU               #load gromacs
+
+gmx grompp -f production.mdp -c tension.gro -p topol_PEO_excess.top -o tension`.tpr
+
+gmx mdrun -deffnm tension -v -nb gpu  -ntomp 4 -ntmpi 2 -gpu_id 0
