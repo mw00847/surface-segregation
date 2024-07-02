@@ -1,3 +1,11 @@
+# intro
+* build polymer blends with different lengths and chemistries
+
+* extend the z axis of the box with a vacuum either side to simulate an interface
+
+* run simulations and plot the density across the z axis of different components to understand any segregation
+
+
 # Surface segregation of polymer blends
 
 Surface energy is the free energy per unit area of creating an interface with air or vacuum. Surface tension is the force per unit length along the surface opposing the interface of air or vacuum (1). The surface of polymer blends is often different from the bulk material (1). This in itself provides the opportunity to add functionality at the surface interface for coatings to have properties such as corrosion inhibition, hydrophobicity, conductance and anti cratering. Flow aids are commonly used in small quantities in coatings to improve the wetting and work of adhesion and also enhance the visual effect of the coating (4). These flow aids are often a low weight polyacrylic in comparison to the blend of polymers that make up the binder and topocoat.     
